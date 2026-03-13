@@ -1,0 +1,8 @@
+curl : lance la requête HTTP.
+-s : mode silencieux (silent), masque la barre de progression et les messages inutiles.
+-L : suit les redirections HTTP (Location:), indispensable pour un lien bit.ly.
+-o /dev/null : envoie le contenu de la page vers “poubelle” (on ne garde pas le HTML).
+-w '%{url_effective}\n' : affiche seulement l’URL finale réellement atteinte après redirections.
+%{url_effective} = URL finale.
+\n = retour à la ligne.
+"$1" : premier argument du script, donc le lien donné par l’utilisateur (bit.ly/...).
