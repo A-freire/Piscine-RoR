@@ -1,0 +1,15 @@
+<section class="profile-card">
+  <h2><%= @user.name %>'s profile</h2>
+  <p><strong>Email:</strong> <%= @user.email %></p>
+  <p><strong>Voting points:</strong> <%= @user.points %></p>
+  <p><strong>Specific rights:</strong></p>
+  <ul class="list-reset">
+    <% @user.privilege_labels.each do |label| %>
+      <li><%= label %></li>
+    <% end %>
+  </ul>
+  <div class="profile-actions">
+    <%= link_to "Edit my profile", edit_user_path(@user), class: "button-link secondary" %>
+    <%= link_to "Back to posts", root_path, class: "button-link secondary" %>
+  </div>
+</section>

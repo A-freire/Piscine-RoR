@@ -1,0 +1,30 @@
+<section>
+  <div class="title-row">
+    <div>
+      <h2>Life Pro Tips</h2>
+      <p class="meta">Titles and authors are listed from the most recent post to the oldest one.</p>
+    </div>
+    <% if signed_in? %>
+      <%= link_to "Write a new post", new_post_path, class: "button-link" %>
+    <% end %>
+  </div>
+
+  <div class="post-list">
+    <% @posts.each do |post| %>
+      <article class="post-card">
+        <h3><%= link_to post.title, post_path(post) %></h3>
+        <div class="post-meta">
+          <span class="meta">Author: <%= post.author_name %></span>
+          <span class="meta">Published: <%= l(post.created_at, format: :long) %></span>
+          <span class="meta">Votes: <%= post.vote_total %></span>
+        </div>
+      </article>
+    <% end %>
+
+    <% if @posts.empty? %>
+      <div class="post-card">
+        <p>No post has been published yet.</p>
+      </div>
+    <% end %>
+  </div>
+</section>

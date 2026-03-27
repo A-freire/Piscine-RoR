@@ -1,0 +1,9 @@
+<section>
+  <h2>Create your account</h2>
+  <p class="meta">Register with a unique name, a unique email address and a password of at least 8 characters.</p>
+  <%= render "form",
+             user: @user,
+             url: sign_in_path,
+             submit_label: "Create account",
+             include_password_fields: true %>
+</section>

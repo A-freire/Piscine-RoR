@@ -1,0 +1,79 @@
+bob_plus_one:
+  post: bob_tip
+  user: alice
+  value: 1
+
+bob_plus_two:
+  post: bob_tip
+  user: stephan
+  value: 1
+
+stephan_plus_one:
+  post: stephan_tip
+  user: admin
+  value: 1
+
+stephan_plus_two:
+  post: stephan_tip
+  user: bob2
+  value: 1
+
+stephan_plus_three:
+  post: stephan_tip
+  user: alice
+  value: 1
+
+stephan_plus_four:
+  post: stephan_tip
+  user: rookie
+  value: 1
+
+mentor_plus_one:
+  post: mentor_tip
+  user: admin
+  value: 1
+
+mentor_plus_two:
+  post: mentor_tip
+  user: admin
+  value: 1
+
+mentor_plus_three:
+  post: mentor_tip
+  user: admin
+  value: 1
+
+mentor_plus_four:
+  post: mentor_tip
+  user: admin
+  value: 1
+
+mentor_plus_five:
+  post: mentor_tip
+  user: admin
+  value: 1
+
+mentor_plus_six:
+  post: mentor_tip
+  user: admin
+  value: 1
+
+mentor_plus_seven:
+  post: mentor_tip
+  user: bob2
+  value: 1
+
+mentor_plus_eight:
+  post: mentor_tip
+  user: stephan
+  value: 1
+
+mentor_plus_nine:
+  post: mentor_tip
+  user: alice
+  value: 1
+
+mentor_plus_ten:
+  post: mentor_tip
+  user: rookie
+  value: 1

@@ -1,0 +1,36 @@
+<section>
+  <%= render "admin/navigation" %>
+  <h2>Administrate users</h2>
+
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Points</th>
+        <th>Rights</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.points %></td>
+          <td>
+            <ul class="list-reset">
+              <% user.privilege_labels.each do |label| %>
+                <li><%= label %></li>
+              <% end %>
+            </ul>
+          </td>
+          <td class="admin-links">
+            <%= link_to "Edit", edit_admin_user_path(user), class: "button-link secondary" %>
+            <%= button_to "Delete", admin_user_path(user), method: :delete, class: "button danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

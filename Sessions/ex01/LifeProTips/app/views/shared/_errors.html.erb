@@ -1,0 +1,10 @@
+<% return unless record.errors.any? %>
+
+<div class="error-box">
+  <strong><%= pluralize(record.errors.count, "error") %> prevented this form from being saved:</strong>
+  <ul class="list-reset">
+    <% record.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>

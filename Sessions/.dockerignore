@@ -1,0 +1,10 @@
+.git
+.DS_Store
+.codex-pdf-venv
+.docker
+**/.bundle
+**/log
+**/node_modules
+**/storage
+**/tmp
+**/vendor/bundle

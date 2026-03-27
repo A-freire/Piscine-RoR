@@ -1,0 +1,29 @@
+<div class="form-card">
+  <%= render "shared/errors", record: user %>
+
+  <%= form_with model: user, url:, local: true do |form| %>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, required: true %>
+    </div>
+
+    <div class="field">
+      <%= form.label :email, "Mail address" %>
+      <%= form.email_field :email, required: true %>
+    </div>
+
+    <% if include_password_fields %>
+      <div class="field">
+        <%= form.label :password %>
+        <%= form.password_field :password, required: true %>
+      </div>
+
+      <div class="field">
+        <%= form.label :password_confirmation %>
+        <%= form.password_field :password_confirmation, required: true %>
+      </div>
+    <% end %>
+
+    <%= form.submit submit_label, class: "button" %>
+  <% end %>
+</div>

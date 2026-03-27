@@ -1,0 +1,19 @@
+<section>
+  <%= render "admin/navigation" %>
+  <h2>Administrate votes</h2>
+
+  <% @posts.each do |post| %>
+    <div class="vote-group">
+      <h3><%= post.title %></h3>
+      <ul class="list-reset">
+        <% post.votes.recent_first.each do |vote| %>
+          <li>
+            <strong><%= vote.voter_name %></strong>
+            voted <%= vote.value.positive? ? "+1" : "-1" %>
+            <%= button_to "Delete", admin_vote_path(vote), method: :delete, class: "button danger" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</section>

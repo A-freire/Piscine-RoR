@@ -1,0 +1,27 @@
+bob_tip:
+  title: Water Test
+  content: Check the water temperature with the inside of your wrist.
+  user: bob2
+  last_editor_id:
+  last_edited_at:
+
+stephan_tip:
+  title: Soup Rescue
+  content: Add a peeled potato to absorb excess salt.
+  user: stephan
+  last_editor_id:
+  last_edited_at:
+
+alice_tip:
+  title: Cool Coffee Fast
+  content: Use a wide mug to cool your coffee faster.
+  user: alice
+  last_editor_id: <%= ActiveRecord::FixtureSet.identify(:stephan) %>
+  last_edited_at: 2026-03-26 21:00:00 UTC
+
+mentor_tip:
+  title: Cable Drawer
+  content: Use cardboard rolls to sort cables in a drawer.
+  user: mentor
+  last_editor_id:
+  last_edited_at:

@@ -1,0 +1,22 @@
+<header class="header-card">
+  <div>
+    <h1 class="brand">LifeProTips</h1>
+    <div class="header-line">
+      <% if signed_in? %>
+        <span>
+          Welcome <%= link_to logged_in_user.name, user_path(logged_in_user) %>!
+        </span>
+        <% if logged_in_user.admin? %>
+          <%= link_to "Administrate_users", admin_users_path %>
+          <%= link_to "Administrate_posts", admin_posts_path %>
+          <%= link_to "Administrate_votes", admin_votes_path %>
+        <% end %>
+        <%= button_to "Log_out", log_out_path, method: :delete, class: "button-link secondary" %>
+      <% else %>
+        <span>Welcome <%= current_user.name %> visitor!</span>
+        <%= link_to "Sign_in", sign_in_path %>
+        <%= link_to "Log_in", log_in_path %>
+      <% end %>
+    </div>
+  </div>
+</header>

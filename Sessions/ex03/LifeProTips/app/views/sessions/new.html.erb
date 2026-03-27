@@ -1,0 +1,18 @@
+<section>
+  <h2>Log in</h2>
+  <div class="form-card">
+    <%= form_with url: log_in_path, local: true do |form| %>
+      <div class="field">
+        <%= form.label :login, "Name or email" %>
+        <%= form.text_field :login, value: @login, required: true %>
+      </div>
+
+      <div class="field">
+        <%= form.label :password %>
+        <%= form.password_field :password, required: true %>
+      </div>
+
+      <%= form.submit "Log in", class: "button" %>
+    <% end %>
+  </div>
+</section>

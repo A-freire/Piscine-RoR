@@ -1,0 +1,5 @@
+<section>
+  <%= render "admin/navigation" %>
+  <h2>Edit post</h2>
+  <%= render "posts/form", post: @post, url: admin_post_path(@post), submit_label: "Update post" %>
+</section>

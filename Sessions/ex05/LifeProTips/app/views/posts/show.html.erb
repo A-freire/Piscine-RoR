@@ -1,0 +1,42 @@
+<article class="post-card">
+  <div class="title-row">
+    <h2><%= @post.title %></h2>
+    <%= link_to "Back to posts", root_path, class: "button-link secondary" %>
+  </div>
+
+  <p><strong>Original author:</strong> <%= @post.author_name %></p>
+  <p><strong>Title:</strong> <%= @post.title %></p>
+  <p><strong>Content:</strong> <%= simple_format(@post.content) %></p>
+
+  <% if @post.edited? %>
+    <p><strong>Edited by:</strong> <%= @post.editor_name %></p>
+    <p><strong>Date of modification:</strong> <%= @post.last_edited_at.utc %></p>
+  <% end %>
+
+  <div class="vote-actions">
+    <strong>Total votes: <%= @post.vote_total %></strong>
+
+    <% if @post.user == logged_in_user %>
+      <span class="meta">You cannot vote for your own post.</span>
+    <% else %>
+      <% if logged_in_user.can_upvote_posts? %>
+        <%= button_to "Up-vote", post_votes_path(@post, value: 1), method: :post, class: "button" %>
+      <% end %>
+      <% if logged_in_user.can_downvote_posts? %>
+        <%= button_to "Down-vote", post_votes_path(@post, value: -1), method: :post, class: "button secondary" %>
+      <% end %>
+      <% unless logged_in_user.can_upvote_posts? || logged_in_user.can_downvote_posts? %>
+        <span class="meta">Earn more points to unlock voting rights.</span>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="post-actions">
+    <% if can_edit_post?(@post) %>
+      <%= link_to "Edit", edit_post_path(@post), class: "button-link secondary" %>
+    <% end %>
+    <% if can_destroy_post?(@post) %>
+      <%= button_to "Delete", post_path(@post), method: :delete, class: "button danger" %>
+    <% end %>
+  </div>
+</article>

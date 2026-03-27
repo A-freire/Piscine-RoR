@@ -1,0 +1,8 @@
+<section>
+  <h2>Edit your profile</h2>
+  <%= render "form",
+             user: @user,
+             url: user_path(@user),
+             submit_label: "Update profile",
+             include_password_fields: false %>
+</section>
