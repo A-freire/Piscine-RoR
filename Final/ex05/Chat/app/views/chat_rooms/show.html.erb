@@ -1,0 +1,36 @@
+<section id="chat-room-root" class="chat-room-layout" data-chat-room-id="<%= @chat_room.id %>">
+  <aside class="room-sidebar">
+    <div class="room-creation-card compact">
+      <h2>Create a room</h2>
+      <%= render "room_form", chat_room: @new_chat_room %>
+    </div>
+
+    <div class="room-list-card compact">
+      <div class="section-heading">
+        <h2>Rooms</h2>
+      </div>
+      <%= render "room_list", chat_rooms: @chat_rooms, current_room: @chat_room %>
+    </div>
+  </aside>
+
+  <section class="conversation-card">
+    <div class="conversation-header">
+      <div>
+        <p class="panel-kicker">Created by <%= @chat_room.user.display_name %></p>
+        <h2><%= @chat_room.title %></h2>
+      </div>
+
+      <% if @chat_room.user == current_user %>
+        <%= link_to "Delete room", chat_room_path(@chat_room), method: :delete, data: { confirm: "Delete this room and all messages?" }, class: "nav-link danger-link" %>
+      <% end %>
+    </div>
+
+    <div id="messages" class="messages-stream">
+      <%= render @messages %>
+    </div>
+
+    <div id="message-form-container">
+      <%= render "messages/form", chat_room: @chat_room, message: @message %>
+    </div>
+  </section>
+</section>

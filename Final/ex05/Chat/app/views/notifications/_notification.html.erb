@@ -1,0 +1,6 @@
+<li class="notification-item">
+  <strong><%= message.user.display_name %></strong>
+  in
+  <em><%= message.chat_room.title %></em>
+  <span><%= truncate(message.content, length: 60) %></span>
+</li>

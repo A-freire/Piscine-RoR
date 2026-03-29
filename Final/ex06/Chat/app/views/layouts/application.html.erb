@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chat</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= action_cable_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'cable', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body data-signed-in="<%= user_signed_in? %>">
+    <header class="topbar">
+      <div>
+        <p class="topbar-kicker">Final · ChatThree</p>
+        <h1><%= link_to "Chat", user_signed_in? ? chat_rooms_path : root_path %></h1>
+      </div>
+
+      <nav class="topbar-nav">
+        <% if user_signed_in? %>
+          <span class="user-chip"><%= current_user.display_name %></span>
+          <%= link_to "Rooms", chat_rooms_path, class: "nav-link" %>
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link danger-link" %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Sign up", new_user_registration_path, class: "nav-link primary-link" %>
+        <% end %>
+      </nav>
+    </header>
+
+    <main class="app-shell <%= user_signed_in? ? 'with-sidebar' : 'single-column' %>">
+      <section class="main-panel">
+        <% flash.each do |kind, message| %>
+          <p class="flash <%= kind %>"><%= message %></p>
+        <% end %>
+
+        <%= yield %>
+      </section>
+
+      <% if user_signed_in? %>
+        <aside class="notifications-panel">
+          <div class="notifications-header">
+            <div>
+              <p class="panel-kicker">Realtime</p>
+              <h2>Notifications</h2>
+            </div>
+            <span class="count-badge" id="notifications-count">0</span>
+          </div>
+
+          <ul id="notifications-list" class="notifications-list"></ul>
+        </aside>
+      <% end %>
+    </main>
+
+    <%= yield :page_scripts %>
+
+    <% if user_signed_in? %>
+      <script>
+        (function() {
+          window.chatApp = window.chatApp || {};
+          window.chatApp.notifications = window.chatApp.notifications || [];
+
+          function renderNotifications() {
+            var list = document.getElementById("notifications-list");
+            var count = document.getElementById("notifications-count");
+
+            if (!list || !count) {
+              return;
+            }
+
+            list.innerHTML = window.chatApp.notifications.join("");
+            count.textContent = window.chatApp.notifications.length;
+          }
+
+          function playNotificationSound() {
+            var Context = window.AudioContext || window.webkitAudioContext;
+
+            if (!Context) {
+              return;
+            }
+
+            var context = window.chatApp.audioContext || new Context();
+            window.chatApp.audioContext = context;
+
+            var oscillator = context.createOscillator();
+            var gain = context.createGain();
+
+            oscillator.type = "triangle";
+            oscillator.frequency.value = 740;
+            gain.gain.value = 0.04;
+
+            oscillator.connect(gain);
+            gain.connect(context.destination);
+
+            oscillator.start();
+            setTimeout(function() {
+              oscillator.stop();
+            }, 120);
+          }
+
+          function ensureNotificationsSubscription() {
+            if (window.chatApp.notificationsSubscription || !window.App || !App.cable) {
+              return;
+            }
+
+            window.chatApp.notificationsSubscription = App.cable.subscriptions.create("NotificationsChannel", {
+              received: function(data) {
+                window.chatApp.notifications.unshift(data.html);
+                renderNotifications();
+                playNotificationSound();
+              }
+            });
+          }
+
+          function currentRoomId() {
+            var node = document.getElementById("chat-room-root");
+            return node ? node.dataset.chatRoomId : null;
+          }
+
+          function ensureRoomSubscription() {
+            if (!window.App || !App.cable) {
+              return;
+            }
+
+            var roomId = currentRoomId();
+
+            if (!roomId) {
+              if (window.chatApp.roomSubscription) {
+                App.cable.subscriptions.remove(window.chatApp.roomSubscription);
+                window.chatApp.roomSubscription = null;
+                window.chatApp.roomId = null;
+              }
+              return;
+            }
+
+            if (window.chatApp.roomSubscription && window.chatApp.roomId === roomId) {
+              return;
+            }
+
+            if (window.chatApp.roomSubscription) {
+              App.cable.subscriptions.remove(window.chatApp.roomSubscription);
+            }
+
+            window.chatApp.roomId = roomId;
+            window.chatApp.roomSubscription = App.cable.subscriptions.create(
+              { channel: "ChatRoomChannel", room_id: roomId },
+              {
+                received: function(data) {
+                  var messages = document.getElementById("messages");
+
+                  if (!messages) {
+                    return;
+                  }
+
+                  messages.insertAdjacentHTML("beforeend", data.html);
+                  messages.scrollTop = messages.scrollHeight;
+                }
+              }
+            );
+          }
+
+          document.addEventListener("turbolinks:load", function() {
+            renderNotifications();
+            ensureNotificationsSubscription();
+            ensureRoomSubscription();
+
+            var messages = document.getElementById("messages");
+            if (messages) {
+              messages.scrollTop = messages.scrollHeight;
+            }
+          });
+
+          document.addEventListener("turbolinks:before-cache", function() {
+            if (window.chatApp.roomSubscription && window.App && App.cable) {
+              App.cable.subscriptions.remove(window.chatApp.roomSubscription);
+              window.chatApp.roomSubscription = null;
+              window.chatApp.roomId = null;
+            }
+          });
+        })();
+      </script>
+    <% end %>
+  </body>
+</html>

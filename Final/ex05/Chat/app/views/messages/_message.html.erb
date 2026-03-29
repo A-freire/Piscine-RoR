@@ -1,0 +1,7 @@
+<article class="message-card" id="message_<%= message.id %>">
+  <div class="message-meta">
+    <strong><%= message.user.display_name %></strong>
+    <span><%= message.created_at.strftime("%H:%M:%S") %></span>
+  </div>
+  <p><%= simple_format(h(message.content), {}, wrapper_tag: "span") %></p>
+</article>

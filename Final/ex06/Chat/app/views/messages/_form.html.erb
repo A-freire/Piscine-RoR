@@ -1,0 +1,14 @@
+<%= form_with model: [chat_room, message], local: false do |form| %>
+  <% if message.errors.any? %>
+    <div class="error-box">
+      <% message.errors.full_messages.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="message-composer">
+    <%= form.text_area :content, rows: 3, placeholder: "Write something for everyone in this room..." %>
+    <%= form.submit "Send", class: "nav-link primary-link submit-link" %>
+  </div>
+<% end %>

@@ -1,0 +1,16 @@
+<section id="chat-room-root" class="conversation-card" data-chat-room-id="<%= @chat_room.id %>">
+  <div class="conversation-header">
+    <div>
+      <p class="panel-kicker">Exercise 04 · ChatOne</p>
+      <h2><%= @chat_room.title %></h2>
+    </div>
+  </div>
+
+  <div id="messages" class="messages-stream">
+    <%= render @messages %>
+  </div>
+
+  <div id="message-form-container">
+    <%= render "messages/form", chat_room: @chat_room, message: @message %>
+  </div>
+</section>

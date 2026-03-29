@@ -1,0 +1,3 @@
+document.getElementById("book-form-container").innerHTML = "";
+document.getElementById("book-count").innerHTML = "<%= j render('count', books: @books) %>";
+document.getElementById("books-table-body").innerHTML = "<%= j render(@books) %>";

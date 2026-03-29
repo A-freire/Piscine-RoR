@@ -1,0 +1,31 @@
+<section class="library-card">
+  <div class="library-header">
+    <div>
+      <p class="eyebrow">Exercise 01 · Francis_2</p>
+      <h1>Xnote</h1>
+      <p class="subtitle">Create and delete books over AJAX while keeping the refresh counter at 1.</p>
+    </div>
+
+    <%= link_to "Add a book", new_book_path, remote: true, id: "new-book-link", class: "primary-action" %>
+  </div>
+
+  <% if notice.present? %>
+    <p class="flash notice"><%= notice %></p>
+  <% end %>
+
+  <div id="book-form-container"></div>
+
+  <div class="table-shell">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th class="actions-column">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="books-table-body">
+        <%= render @books %>
+      </tbody>
+    </table>
+  </div>
+</section>

@@ -1,0 +1,7 @@
+<tr id="<%= dom_id(book) %>">
+  <td class="book-name"><%= book.name %></td>
+  <td class="row-actions">
+    <%= link_to "Edit", edit_book_path(book), remote: true, class: "table-link" %>
+    <%= link_to "Delete", book_path(book), method: :delete, remote: true, data: { confirm: "Delete #{book.name}?" }, class: "table-link danger-link" %>
+  </td>
+</tr>

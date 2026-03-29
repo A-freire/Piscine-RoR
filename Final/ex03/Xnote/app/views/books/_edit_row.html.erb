@@ -1,0 +1,21 @@
+<tr id="<%= dom_id(book) %>">
+  <td colspan="2">
+    <div class="inline-row-form">
+      <%= form_with(model: book, local: false) do |form| %>
+        <% if book.errors.any? %>
+          <div class="error-box compact">
+            <% book.errors.full_messages.each do |message| %>
+              <p><%= message %></p>
+            <% end %>
+          </div>
+        <% end %>
+
+        <div class="row-editor">
+          <%= form.text_field :name, autofocus: true, autocomplete: "off" %>
+          <%= form.submit "Update", class: "primary-action small" %>
+          <%= link_to "Cancel", "#", class: "secondary-action small", onclick: "document.getElementById('#{dom_id(book)}').outerHTML = #{j(render('book', book: book)).to_json}; return false;" %>
+        </div>
+      <% end %>
+    </div>
+  </td>
+</tr>

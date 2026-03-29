@@ -1,0 +1,30 @@
+<section class="library-card">
+  <div class="library-header">
+    <div>
+      <p class="eyebrow">Exercise 00 · Francis_1</p>
+      <h1>Xnote</h1>
+      <p class="subtitle">Add books over AJAX and display uniqueness errors without refreshing the page.</p>
+    </div>
+
+    <%= link_to "Add a book", new_book_path, remote: true, id: "new-book-link", class: "primary-action" %>
+  </div>
+
+  <% if notice.present? %>
+    <p class="flash notice"><%= notice %></p>
+  <% end %>
+
+  <div id="book-form-container"></div>
+
+  <div class="table-shell">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody id="books-table-body">
+        <%= render @books %>
+      </tbody>
+    </table>
+  </div>
+</section>

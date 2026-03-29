@@ -1,0 +1,6 @@
+<% if @saved %>
+document.getElementById("book-form-container").innerHTML = "";
+document.getElementById("books-table-body").innerHTML = "<%= j render(@books) %>";
+<% else %>
+document.getElementById("book-form-container").innerHTML = "<%= j render('form', book: @book) %>";
+<% end %>

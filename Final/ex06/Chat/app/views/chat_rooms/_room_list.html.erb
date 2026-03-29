@@ -1,0 +1,18 @@
+<% current_room ||= nil %>
+
+<div class="room-list">
+  <% if chat_rooms.any? %>
+    <% chat_rooms.each do |chat_room| %>
+      <article class="room-item <%= 'active' if current_room == chat_room %>">
+        <div>
+          <h3><%= link_to chat_room.title, chat_room_path(chat_room) %></h3>
+          <p>Created by <%= chat_room.user.display_name %></p>
+        </div>
+
+        <span><%= pluralize(chat_room.messages.count, "message") %></span>
+      </article>
+    <% end %>
+  <% else %>
+    <p class="empty-state">No rooms yet. Create the first one and open it in multiple clients.</p>
+  <% end %>
+</div>

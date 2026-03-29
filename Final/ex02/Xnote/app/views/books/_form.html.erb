@@ -1,0 +1,23 @@
+<div class="inline-form-card">
+  <h2>Add a new book</h2>
+
+  <%= form_with(model: book, local: false) do |form| %>
+    <% if book.errors.any? %>
+      <div class="error-box">
+        <% book.errors.full_messages.each do |message| %>
+          <p><%= message %></p>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="field-row">
+      <%= form.label :name %>
+      <%= form.text_field :name, autofocus: true, autocomplete: "off", placeholder: "The Hobbit" %>
+    </div>
+
+    <div class="button-row">
+      <%= form.submit "Save book", class: "primary-action" %>
+      <%= link_to "Cancel", "#", class: "secondary-action", onclick: "document.getElementById('book-form-container').innerHTML = ''; return false;" %>
+    </div>
+  <% end %>
+</div>
