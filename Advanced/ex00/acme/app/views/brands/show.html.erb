@@ -1,0 +1,37 @@
+<section class="detail-card">
+  <div class="detail-grid">
+    <div class="detail-media">
+      <% if (image_url = transformed_image_url(@brand.avatar, width: 960, height: 720)).present? %>
+        <%= image_tag image_url, alt: @brand.name %>
+      <% else %>
+        <div class="image-fallback">Marque</div>
+      <% end %>
+    </div>
+
+    <div class="detail-copy">
+      <p class="eyebrow">Marque</p>
+      <h1 class="headline"><%= @brand.name %></h1>
+      <p><%= pluralize(@products.count, "produit") %> rattaches a cette marque.</p>
+
+      <div class="hero-actions">
+        <%= link_to "Retour aux marques", brands_path, class: "ghost-link" %>
+        <% if can_manage_catalog? %>
+          <%= link_to "Editer", edit_brand_path(@brand), class: "ghost-link" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page-head">
+  <div>
+    <p class="eyebrow">Selection</p>
+    <h2 class="section-title">Produits de la marque</h2>
+  </div>
+</section>
+
+<section class="product-grid">
+  <% @products.each do |product| %>
+    <%= render "products/product_card", product: product %>
+  <% end %>
+</section>

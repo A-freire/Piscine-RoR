@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Acme</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="topbar__brand">
+        <%= link_to "Acme", root_path, class: "brand-link" %>
+        <span class="owner-badge">login: <%= owner_login %></span>
+      </div>
+
+      <nav class="topbar__nav">
+        <%= link_to "Catalogue", products_path %>
+        <%= link_to "Marques", brands_path %>
+        <%= link_to "Panier", cart_path %>
+        <% if current_user&.backoffice_access? %>
+          <%= link_to "Admin", rails_admin_path %>
+        <% end %>
+      </nav>
+
+      <div class="topbar__auth">
+        <% if user_signed_in? %>
+          <span class="auth-pill"><%= current_user.name %></span>
+          <%= link_to "Mon compte", edit_user_registration_path, class: "ghost-link" %>
+          <%= button_to "Se deconnecter", destroy_user_session_path, method: :delete, class: "button button--dark" %>
+        <% else %>
+          <%= link_to "Connexion", new_user_session_path, class: "ghost-link" %>
+          <%= link_to "Inscription", new_user_registration_path, class: "button button--dark" %>
+        <% end %>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <% flash.each do |type, message| %>
+        <div class="flash flash--<%= type %>"><%= message %></div>
+      <% end %>
+
+      <%= yield %>
+    </main>
+  </body>
+</html>

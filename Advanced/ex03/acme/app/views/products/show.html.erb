@@ -1,0 +1,26 @@
+<section class="detail-card">
+  <div class="detail-grid">
+    <div class="detail-media">
+      <% if (image_url = transformed_image_url(@product.pict, width: 960, height: 720)).present? %>
+        <%= image_tag image_url, alt: @product.name %>
+      <% else %>
+        <div class="image-fallback">Produit</div>
+      <% end %>
+    </div>
+
+    <div class="detail-copy">
+      <p class="eyebrow"><%= @product.brand.name %></p>
+      <h1 class="headline"><%= @product.name %></h1>
+      <span class="price-tag"><%= money(@product.price) %></span>
+      <p><%= simple_format(@product.description) %></p>
+
+      <div class="hero-actions">
+        <%= button_to "Ajouter au panier", cart_items_path(product_id: @product.id) %>
+        <%= link_to "Retour au catalogue", products_path, class: "ghost-link" %>
+        <% if can_manage_catalog? %>
+          <%= link_to "Editer", edit_product_path(@product), class: "ghost-link" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

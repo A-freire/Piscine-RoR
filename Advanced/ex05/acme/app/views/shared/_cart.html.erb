@@ -1,0 +1,43 @@
+<div class="panel">
+  <p class="eyebrow">Panier</p>
+  <h2 class="section-title">Votre selection</h2>
+
+  <% if cart.cart_items.any? %>
+    <div class="cart-lines">
+      <% cart.cart_items.includes(product: :brand).each do |item| %>
+        <div class="cart-line">
+          <div class="cart-line__top">
+            <div>
+              <strong><%= item.product.name %></strong>
+              <div class="muted"><%= item.product.brand.name %></div>
+            </div>
+            <span class="meta-pill">x<%= item.quantity %></span>
+          </div>
+
+          <div class="line-price">
+            <span><%= money(item.line_total) %></span>
+            <div class="cart-line__actions">
+              <%= button_to "+", increment_cart_item_path(item), method: :patch %>
+              <%= button_to "-", decrement_cart_item_path(item), method: :patch, class: "button--light" %>
+              <%= button_to "Retirer", cart_item_path(item), method: :delete, class: "button--light" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="cart-total">
+      <span>Total</span>
+      <span><%= money(cart.subtotal) %></span>
+    </div>
+
+    <div class="stack-actions">
+      <%= link_to "Checkout", checkout_path, class: "button button--dark" %>
+      <%= button_to "Vider le panier", cart_path, method: :delete, class: "button--light" %>
+    </div>
+  <% else %>
+    <div class="empty-state">
+      Le panier est vide. Ajoutez quelques produits pour construire votre commande.
+    </div>
+  <% end %>
+</div>

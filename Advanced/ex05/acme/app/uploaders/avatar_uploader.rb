@@ -1,0 +1,2 @@
+class AvatarUploader < ApplicationUploader
+end

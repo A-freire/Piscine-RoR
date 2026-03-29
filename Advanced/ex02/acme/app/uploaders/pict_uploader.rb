@@ -1,0 +1,2 @@
+class PictUploader < ApplicationUploader
+end

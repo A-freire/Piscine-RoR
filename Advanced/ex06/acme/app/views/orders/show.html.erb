@@ -1,0 +1,30 @@
+<section class="checkout-card">
+  <p class="eyebrow">Checkout</p>
+  <h1 class="section-title">Validation de la commande</h1>
+
+  <div class="checkout-lines">
+    <% @cart.cart_items.includes(product: :brand).each do |item| %>
+      <div class="checkout-line">
+        <div class="checkout-line__top">
+          <strong><%= item.product.name %></strong>
+          <span class="meta-pill">x<%= item.quantity %></span>
+        </div>
+        <div class="muted"><%= item.product.brand.name %></div>
+        <div class="line-price">
+          <span>Prix unitaire: <%= money(item.product.price) %></span>
+          <span>Total ligne: <%= money(item.line_total) %></span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="checkout-total">
+    <span>Total commande</span>
+    <span><%= money(@cart.subtotal) %></span>
+  </div>
+
+  <div class="hero-actions">
+    <%= button_to "Confirmer la commande", checkout_path %>
+    <%= link_to "Retour au catalogue", products_path, class: "ghost-link" %>
+  </div>
+</section>
