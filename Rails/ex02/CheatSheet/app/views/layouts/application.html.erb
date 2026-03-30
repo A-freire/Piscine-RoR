@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "CheatSheet" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <%= stylesheet_link_tag "application" %>
+    <%= yield :head %>
+  </head>
+
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <nav class="cheatsheet-navbar" aria-label="Primary">
+            <%= link_to "CheatSheet", root_path, class: "navbar-brand" %>
+
+            <div class="navbar-links navbar-links-left">
+              <% @navigation.each do |item| %>
+                <% children = Array(item["children"]) %>
+                <% if children.any? %>
+                  <div class="nav-dropdown">
+                    <%= link_to item["title"], item["path"], class: ["nav-dropdown-toggle", ("is-active" if item["active"])].compact.join(" ") %>
+                    <div class="nav-dropdown-menu" role="menu" aria-label="<%= item["title"] %> sections">
+                      <% children.each do |child| %>
+                        <%= link_to child["title"], child["path"], class: ("is-active" if child["active"]) %>
+                      <% end %>
+                    </div>
+                  </div>
+                <% else %>
+                  <%= link_to item["title"], item["path"], class: ("is-active" if item["active"]) %>
+                <% end %>
+              <% end %>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <div id="content-wrapper">
+        <div class="container">
+          <%= yield %>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footer-constrain">
+          <p>created by <a href="http://pragtob.info">Afreire-</a></p>
+          <ul class="footer-links">
+            <li>About</li>
+            <li class="text-muted">·</li>
+            <li>Resources</li>
+            <li class="text-muted">·</li>
+            <li><a href="http://pragtob.wordpress.com/">Blog</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+    <%= yield :page_scripts %>
+  </body>
+</html>

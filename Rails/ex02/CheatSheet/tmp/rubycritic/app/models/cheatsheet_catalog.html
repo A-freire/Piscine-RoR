@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../assets/vendor/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/vendor/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/vendor/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../overview.html"><img src="../../assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../simple_cov_index.html" class="project-nav-item coverage-index-nav"><i class="fa fa-umbrella"></i>Coverage</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Never committed
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>app/models /</small> cheatsheet_catalog.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating a big">
+              A
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">72</span><small> lines of codes</small></div>
+              <div><span class="metric">4</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">7.1</span><small> complexity/method</small></div>
+              <div><span class="metric">0</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">28.48</span><small> complexity</small></div>
+              <div><span class="metric">0</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                2
+                smells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code">require &quot;yaml&quot;
+
+class CheatsheetCatalog<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md" target="_blank"><b>IrresponsibleModule</b></a>        </span>      </div>      <span>CheatsheetCatalog has no descriptive comment</span>          </div>  </li></ol>
+  PAGE_SLUGS = %w[
+    convention
+    console
+    ruby
+    ruby-concepts
+    ruby-numbers
+    ruby-strings
+    ruby-arrays
+    ruby-hashes
+    rails-folder-structure
+    rails-commands
+    rails-erb
+    editor
+    help
+  ].freeze
+
+  NAVIGATION = [
+    { &quot;title&quot; =&gt; &quot;Convention&quot;, &quot;slug&quot; =&gt; &quot;convention&quot; },
+    { &quot;title&quot; =&gt; &quot;Console&quot;, &quot;slug&quot; =&gt; &quot;console&quot; },
+    {
+      &quot;title&quot; =&gt; &quot;Ruby&quot;,
+      &quot;slug&quot; =&gt; &quot;ruby&quot;,
+      &quot;children&quot; =&gt; [
+        { &quot;title&quot; =&gt; &quot;General Concepts&quot;, &quot;slug&quot; =&gt; &quot;ruby-concepts&quot; },
+        { &quot;title&quot; =&gt; &quot;Numbers&quot;, &quot;slug&quot; =&gt; &quot;ruby-numbers&quot; },
+        { &quot;title&quot; =&gt; &quot;Strings&quot;, &quot;slug&quot; =&gt; &quot;ruby-strings&quot; },
+        { &quot;title&quot; =&gt; &quot;Arrays&quot;, &quot;slug&quot; =&gt; &quot;ruby-arrays&quot; },
+        { &quot;title&quot; =&gt; &quot;Hashes&quot;, &quot;slug&quot; =&gt; &quot;ruby-hashes&quot; }
+      ]
+    },
+    {
+      &quot;title&quot; =&gt; &quot;Rails&quot;,
+      &quot;slug&quot; =&gt; &quot;rails-folder-structure&quot;,
+      &quot;children&quot; =&gt; [
+        { &quot;title&quot; =&gt; &quot;Folder Structure&quot;, &quot;slug&quot; =&gt; &quot;rails-folder-structure&quot; },
+        { &quot;title&quot; =&gt; &quot;Commands&quot;, &quot;slug&quot; =&gt; &quot;rails-commands&quot; },
+        { &quot;title&quot; =&gt; &quot;ERB&quot;, &quot;slug&quot; =&gt; &quot;rails-erb&quot; }
+      ]
+    },
+    { &quot;title&quot; =&gt; &quot;Editor&quot;, &quot;slug&quot; =&gt; &quot;editor&quot; },
+    { &quot;title&quot; =&gt; &quot;Help&quot;, &quot;slug&quot; =&gt; &quot;help&quot; }
+  ].freeze
+
+  class &lt;&lt; self
+    def navigation
+      NAVIGATION
+    end
+
+    def page(slug)
+      pages.fetch(slug)
+    end
+
+    def quick_search_commands
+      PAGE_SLUGS.flat_map do |slug|
+        page = pages.fetch(slug)
+        Array(page[&quot;commands&quot;]).map do |command|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Nested-Iterators.md" target="_blank"><b>NestedIterators</b></a>        </span>      </div>      <span>CheatsheetCatalog#quick_search_commands contains iterators nested 2 deep</span>          </div>  </li></ol>
+          command.merge(&quot;section&quot; =&gt; page.fetch(&quot;title&quot;))
+        end
+      end
+    end
+
+    private
+
+    def pages
+      @pages ||= YAML.safe_load_file(Rails.root.join(&quot;config/cheatsheet_pages.yml&quot;))
+        .fetch(&quot;pages&quot;)
+    end
+  end
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src="../../assets/vendor/javascripts/jquery.min.js"></script>
+    <script src="../../assets/vendor/javascripts/jquery.tablesorter.min.js"></script>
+    <script src="../../assets/vendor/javascripts/jquery.scrollTo.min.js"></script>
+    <script src="../../assets/vendor/javascripts/jquery.timeago.js"></script>
+    <script src="../../assets/vendor/javascripts/highcharts.src-4.0.1.js"></script>
+    <script src="../../assets/vendor/javascripts/prettify.js"></script>
+    <script src="../../assets/vendor/javascripts/bootstrap.min.js"></script>
+    <script src="../../assets/javascripts/application.js"></script>
+    <script src="../../assets/vendor/javascripts/jquery.filtertable.min.js"></script>
+  </body>
+</html>

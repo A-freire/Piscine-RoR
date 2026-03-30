@@ -1,0 +1,27 @@
+<% content_for :title, "Quick search" %>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag "dataTables.bootstrap4.min" %>
+<% end %>
+
+<% content_for :page_scripts do %>
+  <%= javascript_include_tag "jquery-3.7.1.min", defer: true %>
+  <%= javascript_include_tag "jquery.dataTables.min", defer: true %>
+  <%= javascript_include_tag "dataTables.bootstrap4.min", defer: true %>
+  <%= javascript_include_tag "quick_search", defer: true %>
+<% end %>
+
+<section id="main-content" class="quick-search-page">
+  <h1>Quick search</h1>
+
+  <p>
+    This table gathers every command from the cheat sheet in a single place.
+    Use the search field, pagination and sorting to find commands faster.
+  </p>
+
+  <%= render "shared/command_table",
+    commands: @records,
+    show_section: true,
+    table_id: "quick-search-table",
+    table_classes: "table table-striped table-bordered" %>
+</section>

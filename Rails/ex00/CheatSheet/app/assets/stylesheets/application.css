@@ -1,0 +1,185 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  margin-top: 36px;
+  background-color: #ffffff;
+  color: #666666;
+  font-family: "Helvetica Neue", Helvetica, Arial, serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: #f3360b;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #be360b;
+  text-decoration: underline;
+}
+
+#content-wrapper {
+  padding-top: 8px;
+  flex: 1;
+}
+
+#main-content h1,
+#main-content h2 {
+  color: #474747;
+  font-family: "Architects Daughter", "Helvetica Neue", Helvetica, Arial, serif;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+
+#main-content h1 {
+  font-size: 2.8em;
+  margin-top: 34px;
+  margin-bottom: 14px;
+}
+
+#main-content h1::before {
+  content: "/";
+  color: #f3360b;
+  margin-left: -0.9em;
+  padding-right: 0.3em;
+}
+
+#main-content h2 {
+  font-size: 22px;
+  margin-top: 26px;
+  margin-bottom: 8px;
+}
+
+#main-content h2::before {
+  content: "//";
+  color: #f3360b;
+  margin-left: -1.5em;
+  padding-right: 0.3em;
+}
+
+p,
+ul,
+ol,
+dl {
+  margin-bottom: 20px;
+}
+
+code,
+pre {
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  font-size: 13px;
+  overflow-wrap: normal;
+  white-space: nowrap;
+}
+
+code {
+  color: #f3360b;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+pre {
+  display: block;
+  margin: 0 0 10px;
+  padding: 9.5px;
+  white-space: pre-wrap;
+  line-height: 1.45;
+  color: #f3360b;
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+
+pre code {
+  display: block;
+  padding: 0;
+  white-space: pre-wrap;
+  color: inherit;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+.table {
+  margin-bottom: 28px;
+}
+
+#main-content .table td p,
+#main-content .table th p {
+  margin: 0 0 8px;
+}
+
+#main-content .table td p:last-child,
+#main-content .table th p:last-child {
+  margin-bottom: 0;
+}
+
+#main-content .table > tbody > tr.table-row-even > td,
+#main-content .table > tbody > tr.table-row-even > th {
+  background-color: #ffffff;
+}
+
+#main-content .table > tbody > tr.table-row-odd > td,
+#main-content .table > tbody > tr.table-row-odd > th {
+  background-color: #f9f9f9;
+}
+
+.table > thead > tr > th {
+  color: #333333;
+}
+
+th.concept {
+  width: 20%;
+}
+
+th.usage {
+  width: 20%;
+}
+
+th.example {
+  width: 24%;
+}
+
+th.description {
+  width: 36%;
+}
+
+footer {
+  margin-top: 70px;
+  padding: 30px 0;
+  border-top: 1px solid #e5e5e5;
+  background-color: #f5f5f5;
+}
+
+.footer-constrain {
+  text-align: center;
+}
+
+.footer-links {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-links li {
+  display: inline;
+  padding: 0 6px;
+}
+
+@media (max-width: 767px) {
+  body {
+    margin-top: 18px;
+  }
+
+  #main-content h1::before,
+  #main-content h2::before {
+    margin-left: 0;
+  }
+}

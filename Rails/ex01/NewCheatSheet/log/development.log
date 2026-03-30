@@ -1,0 +1,634 @@
+Started GET "/" for 127.0.0.1 at 2026-03-08 15:46:24 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | GC: 0.2ms)
+Completed 200 OK in 54ms (Views: 10.4ms | GC: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 15:46:29 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | GC: 0.0ms)
+Completed 200 OK in 22ms (Views: 1.2ms | GC: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 15:46:38 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | GC: 0.0ms)
+Completed 200 OK in 23ms (Views: 1.4ms | GC: 0.0ms)
+
+
+Started GET "/resources.html" for 127.0.0.1 at 2026-03-08 15:46:43 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/resources.html"):
+  
+Started GET "/about.html" for 127.0.0.1 at 2026-03-08 15:48:19 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/about.html"):
+  
+Started GET "/" for 127.0.0.1 at 2026-03-08 15:56:15 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | GC: 0.0ms)
+Completed 200 OK in 16ms (Views: 1.7ms | GC: 0.2ms)
+
+
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | GC: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2026-03-08 16:38:04 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | GC: 0.2ms)
+Completed 200 OK in 146ms (Views: 19.7ms | GC: 0.4ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | GC: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2026-03-08 16:45:05 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | GC: 0.2ms)
+Completed 200 OK in 49ms (Views: 7.3ms | GC: 0.4ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | GC: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2026-03-08 16:48:41 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | GC: 0.2ms)
+Completed 200 OK in 92ms (Views: 12.8ms | GC: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 16:49:24 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | GC: 0.0ms)
+Completed 200 OK in 23ms (Views: 2.2ms | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 16:49:25 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | GC: 0.0ms)
+Completed 200 OK in 15ms (Views: 0.7ms | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 16:49:27 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | GC: 0.0ms)
+Completed 200 OK in 23ms (Views: 1.5ms | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 16:51:53 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | GC: 0.3ms)
+Completed 200 OK in 58ms (Views: 10.5ms | GC: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 16:51:58 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | GC: 0.0ms)
+Completed 200 OK in 23ms (Views: 1.4ms | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 16:52:00 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 16ms (Views: 0.7ms | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 16:52:09 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | GC: 0.2ms)
+Completed 200 OK in 43ms (Views: 6.6ms | GC: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 16:52:47 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | GC: 0.2ms)
+Completed 200 OK in 52ms (Views: 9.0ms | GC: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 16:55:11 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | GC: 0.2ms)
+Completed 200 OK in 45ms (Views: 8.5ms | GC: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 16:58:54 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | GC: 0.2ms)
+Completed 200 OK in 48ms (Views: 7.3ms | GC: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 17:00:04 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | GC: 0.2ms)
+Completed 200 OK in 43ms (Views: 8.8ms | GC: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 17:01:59 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | GC: 0.3ms)
+Completed 200 OK in 58ms (Views: 10.2ms | GC: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 17:05:50 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | GC: 0.3ms)
+Completed 200 OK in 66ms (Views: 12.9ms | GC: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 17:09:42 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | GC: 0.3ms)
+Completed 200 OK in 53ms (Views: 10.7ms | GC: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 17:10:47 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | GC: 0.2ms)
+Completed 200 OK in 40ms (Views: 7.3ms | GC: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 17:12:47 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | GC: 0.2ms)
+Completed 200 OK in 55ms (Views: 11.5ms | GC: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 17:12:54 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 200 OK in 19ms (Views: 1.1ms | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 17:14:23 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | GC: 0.3ms)
+Completed 200 OK in 73ms (Views: 14.7ms | GC: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 17:15:13 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | GC: 0.3ms)
+Completed 200 OK in 53ms (Views: 9.9ms | GC: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 17:15:48 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | GC: 0.2ms)
+Completed 200 OK in 46ms (Views: 8.5ms | GC: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-08 17:16:29 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | GC: 0.3ms)
+Completed 200 OK in 53ms (Views: 10.9ms | GC: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-19 21:30:21 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | GC: 0.2ms)
+Completed 200 OK in 60ms (Views: 17.2ms | GC: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-19 21:31:59 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | GC: 0.2ms)
+Completed 200 OK in 51ms (Views: 9.4ms | GC: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-19 21:33:49 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | GC: 0.2ms)
+Completed 200 OK in 48ms (Views: 9.1ms | GC: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-19 21:41:31 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | GC: 0.2ms)
+Completed 200 OK in 62ms (Views: 11.3ms | GC: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-19 21:42:23 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 20.1ms | GC: 0.4ms)
+Completed 200 OK in 208ms (Views: 51.0ms | GC: 0.7ms)
+
+
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+Started GET "/ruby-concepts" for 127.0.0.1 at 2026-03-19 22:22:20 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "ruby-concepts"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered shared/_command_table.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered pages/show.html.erb within layouts/application (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | GC: 1.1ms)
+Completed 200 OK in 67ms (Views: 9.6ms | GC: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-19 22:35:41 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "convention"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | GC: 0.0ms)
+Completed 200 OK in 70ms (Views: 9.6ms | GC: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-19 22:35:50 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "convention"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | GC: 0.0ms)
+Completed 200 OK in 15ms (Views: 1.1ms | GC: 0.0ms)
+
+
+Started GET "/console" for 127.0.0.1 at 2026-03-19 22:35:51 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "console"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered shared/_command_table.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered pages/show.html.erb within layouts/application (Duration: 3.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | GC: 0.0ms)
+Completed 200 OK in 26ms (Views: 5.5ms | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-19 22:35:53 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "convention"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 200 OK in 13ms (Views: 0.9ms | GC: 0.0ms)
+
+
+Started GET "/ruby-numbers" for 127.0.0.1 at 2026-03-19 22:35:55 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "ruby-numbers"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered shared/_command_table.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | GC: 0.0ms)
+Completed 200 OK in 17ms (Views: 1.4ms | GC: 0.0ms)
+
+
+Started GET "/rails-folder-structure" for 127.0.0.1 at 2026-03-19 22:35:56 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "rails-folder-structure"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered shared/_command_table.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | GC: 0.0ms)
+Completed 200 OK in 19ms (Views: 1.4ms | GC: 0.0ms)
+
+
+Started GET "/editor" for 127.0.0.1 at 2026-03-19 22:35:57 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "editor"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered shared/_command_table.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | GC: 0.0ms)
+Completed 200 OK in 19ms (Views: 1.7ms | GC: 0.0ms)
+
+
+Started GET "/help" for 127.0.0.1 at 2026-03-19 22:35:57 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "help"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered shared/_command_table.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | GC: 0.0ms)
+Completed 200 OK in 21ms (Views: 1.7ms | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-19 22:35:59 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "convention"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | GC: 0.0ms)
+Completed 200 OK in 22ms (Views: 2.1ms | GC: 0.0ms)
+
+
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+Started GET "/" for 127.0.0.1 at 2026-03-19 23:00:03 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "convention"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | GC: 0.2ms)
+Completed 200 OK in 76ms (Views: 21.1ms | GC: 6.6ms)
+
+
+Started GET "/ruby" for 127.0.0.1 at 2026-03-19 23:00:04 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "ruby"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | GC: 0.2ms)
+Completed 200 OK in 106ms (Views: 7.7ms | GC: 8.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-19 23:04:02 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "convention"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.9ms | GC: 0.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | GC: 4.5ms)
+Completed 200 OK in 57ms (Views: 13.2ms | GC: 9.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-19 23:04:03 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "convention"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 19ms (Views: 0.8ms | GC: 0.0ms)
+
+
+Started GET "/console" for 127.0.0.1 at 2026-03-19 23:04:04 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "console"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered shared/_command_table.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered pages/show.html.erb within layouts/application (Duration: 2.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | GC: 0.2ms)
+Completed 200 OK in 23ms (Views: 3.3ms | GC: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-19 23:04:05 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "convention"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 200 OK in 21ms (Views: 1.1ms | GC: 0.0ms)
+
+
+Started GET "/console" for 127.0.0.1 at 2026-03-19 23:04:05 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "console"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered shared/_command_table.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 14ms (Views: 0.8ms | GC: 0.2ms)
+
+
+Started GET "/ruby-numbers" for 127.0.0.1 at 2026-03-19 23:04:07 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "ruby-numbers"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered shared/_command_table.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | GC: 0.0ms)
+Completed 200 OK in 23ms (Views: 2.2ms | GC: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-19 23:05:22 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "convention"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 200 OK in 22ms (Views: 1.0ms | GC: 0.0ms)
+
+
+Started GET "/console" for 127.0.0.1 at 2026-03-19 23:05:23 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "console"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered shared/_command_table.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | GC: 0.0ms)
+Completed 200 OK in 22ms (Views: 1.1ms | GC: 0.0ms)
+
+
+Started GET "/ruby-strings" for 127.0.0.1 at 2026-03-19 23:05:24 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "ruby-strings"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered shared/_command_table.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 200 OK in 16ms (Views: 0.9ms | GC: 0.0ms)
+
+
+Started GET "/rails-folder-structure" for 127.0.0.1 at 2026-03-19 23:05:26 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "rails-folder-structure"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered shared/_command_table.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | GC: 0.0ms)
+Completed 200 OK in 19ms (Views: 1.4ms | GC: 0.0ms)
+
+
+Started GET "/rails-commands" for 127.0.0.1 at 2026-03-19 23:05:27 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "rails-commands"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered shared/_command_table.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | GC: 0.0ms)
+Completed 200 OK in 24ms (Views: 1.4ms | GC: 0.0ms)
+
+
+Started GET "/editor" for 127.0.0.1 at 2026-03-19 23:05:29 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "editor"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered shared/_command_table.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 15ms (Views: 0.7ms | GC: 0.0ms)
+
+
+Started GET "/help" for 127.0.0.1 at 2026-03-19 23:05:30 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "help"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered shared/_command_table.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | GC: 0.0ms)
+Completed 200 OK in 22ms (Views: 1.4ms | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-19 23:08:34 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "convention"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 200 OK in 18ms (Views: 1.0ms | GC: 0.0ms)
+
+
+Started GET "/console" for 127.0.0.1 at 2026-03-19 23:08:35 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "console"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered shared/_command_table.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 200 OK in 17ms (Views: 1.1ms | GC: 0.0ms)
+
+
+Started GET "/about.html" for 127.0.0.1 at 2026-03-19 23:09:04 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/about.html"):
+  
+Started GET "/resources.html" for 127.0.0.1 at 2026-03-19 23:09:24 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/resources.html"):
+  
+Started GET "/" for 127.0.0.1 at 2026-03-19 23:16:53 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "convention"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | GC: 4.2ms)
+Completed 200 OK in 155ms (Views: 38.3ms | GC: 7.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-19 23:16:55 +0100
+Processing by PagesController#show as HTML
+  Parameters: {"page" => "convention"}
+  Rendering layout layouts/application.html.erb
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 200 OK in 18ms (Views: 1.0ms | GC: 0.0ms)
+
+

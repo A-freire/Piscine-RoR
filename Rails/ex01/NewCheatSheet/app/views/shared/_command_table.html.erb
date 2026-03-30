@@ -1,0 +1,30 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="concept">Concept</th>
+        <th class="usage">Usage</th>
+        <th class="example">Examples</th>
+        <th class="description">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% commands.each_with_index do |entry, index| %>
+        <tr class="<%= index.even? ? "table-row-even" : "table-row-odd" %>">
+          <td><%= entry["concept"] %></td>
+          <td>
+            <% Array(entry["usage"]).each do |line| %>
+              <p><code><%= raw(line) %></code></p>
+            <% end %>
+          </td>
+          <td>
+            <% Array(entry["examples"]).each do |line| %>
+              <p><code><%= raw(line) %></code></p>
+            <% end %>
+          </td>
+          <td><%= raw(entry["description"]) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

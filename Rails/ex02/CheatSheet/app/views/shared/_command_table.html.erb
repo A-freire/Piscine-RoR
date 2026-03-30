@@ -1,0 +1,39 @@
+<div class="table-responsive">
+  <table
+    <% if local_assigns[:table_id].present? %>id="<%= table_id %>"<% end %>
+    class="<%= local_assigns[:table_classes].presence || "table table-striped" %>"
+  >
+    <thead>
+      <tr>
+        <% if local_assigns[:show_section] %>
+          <th class="section">Section</th>
+        <% end %>
+        <th class="concept">Concept</th>
+        <th class="usage">Usage</th>
+        <th class="example">Examples</th>
+        <th class="description">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% commands.each_with_index do |entry, index| %>
+        <tr class="<%= index.even? ? "table-row-even" : "table-row-odd" %>">
+          <% if local_assigns[:show_section] %>
+            <td><%= entry["section"] %></td>
+          <% end %>
+          <td><%= entry["concept"] %></td>
+          <td>
+            <% Array(entry["usage"]).each do |line| %>
+              <p><code><%= raw(line) %></code></p>
+            <% end %>
+          </td>
+          <td>
+            <% Array(entry["examples"]).each do |line| %>
+              <p><code><%= raw(line) %></code></p>
+            <% end %>
+          </td>
+          <td><%= raw(entry["description"]) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

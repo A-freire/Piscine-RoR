@@ -1,0 +1,22 @@
+<% content_for :title, @page.fetch("title") %>
+
+<section id="main-content">
+  <h1><%= @page.fetch("heading") %></h1>
+
+  <% Array(@page["paragraphs"]).each do |paragraph| %>
+    <p><%= raw(paragraph) %></p>
+  <% end %>
+
+  <% if @page["children"].present? %>
+    <h2>Pages</h2>
+    <ul>
+      <% @page["children"].each do |child| %>
+        <li><%= link_to child.fetch("title"), child.fetch("path") %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <% if @page["commands"].present? %>
+    <%= render "shared/command_table", commands: @page.fetch("commands") %>
+  <% end %>
+</section>

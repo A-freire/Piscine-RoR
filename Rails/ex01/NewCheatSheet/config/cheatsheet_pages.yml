@@ -1,0 +1,382 @@
+pages:
+  convention:
+    title: Convention
+    heading: Cheat Sheet Conventions
+    paragraphs:
+      - "<strong>Bold</strong> words highlight the most important part of a command or concept."
+      - "<em>Italic words</em> usually describe arguments, placeholders, or ideas explained elsewhere in the cheat sheet."
+      - "This page is the root page required by the subject."
+  console:
+    title: Console
+    heading: Console Basics
+    paragraphs:
+      - "The console, also called the terminal or command line, is where you launch Rails commands and move through project folders."
+      - "These basics are enough to navigate a Rails project and start the server without relying on a graphical interface."
+    commands:
+      - concept: Change directory
+        usage:
+          - "<strong>cd</strong> <em>directory</em>"
+        examples:
+          - "cd my_app"
+          - "cd my_app/app/controllers"
+        description: "Moves the shell into the specified directory."
+      - concept: List directory contents
+        usage:
+          - "<strong>ls</strong> <em>directory</em>"
+        examples:
+          - "ls"
+          - "ls app/views"
+        description: "Lists files and folders in the current location or in the provided path."
+      - concept: Show current directory
+        usage:
+          - "<strong>pwd</strong>"
+        examples:
+          - "pwd"
+        description: "Prints the full path of the current working directory."
+      - concept: Create a directory
+        usage:
+          - "<strong>mkdir</strong> <em>name</em>"
+        examples:
+          - "mkdir rails"
+        description: "Creates a new folder in the current directory."
+      - concept: Stop the current command
+        usage:
+          - "<strong>Ctrl + C</strong>"
+        examples:
+          - "Stop the Rails server"
+        description: "Interrupts the process currently running in the terminal."
+  ruby:
+    title: Ruby
+    heading: Ruby Basics
+    paragraphs:
+      - "Ruby is the language used by Rails. Reading views, controllers and routes becomes much easier once the basic syntax feels familiar."
+      - "Use the subpages below as focused reminders for the concepts you will read most often in beginner Rails applications."
+    children:
+      - title: General Concepts
+        slug: ruby-concepts
+      - title: Numbers
+        slug: ruby-numbers
+      - title: Strings
+        slug: ruby-strings
+      - title: Arrays
+        slug: ruby-arrays
+      - title: Hashes
+        slug: ruby-hashes
+  ruby-concepts:
+    title: Ruby Concepts
+    heading: General Concepts
+    paragraphs:
+      - "These are the building blocks you read constantly in Ruby and Rails code."
+    commands:
+      - concept: Comment
+        usage:
+          - "# comment"
+        examples:
+          - "# explain what happens here"
+        description: "Documents code without changing execution."
+      - concept: Variable assignment
+        usage:
+          - "name = value"
+        examples:
+          - "framework = \"Rails\""
+        description: "Stores a value under a readable name."
+      - concept: Console output
+        usage:
+          - "puts object"
+        examples:
+          - "puts \"Hello World\""
+        description: "Prints a value to standard output."
+      - concept: Method call
+        usage:
+          - "object.method(arguments)"
+        examples:
+          - "title.length"
+        description: "Calls behavior on an object."
+      - concept: Conditional
+        usage:
+          - "if condition ... end"
+        examples:
+          - "if age >= 18"
+        description: "Runs code only when the condition is true."
+  ruby-numbers:
+    title: Ruby Numbers
+    heading: Numbers
+    paragraphs:
+      - "Ruby handles integers and floating point numbers directly, so arithmetic is straightforward."
+    commands:
+      - concept: Integer
+        usage:
+          - "42"
+        examples:
+          - "0"
+        description: "Represents a whole number."
+      - concept: Float
+        usage:
+          - "3.14"
+        examples:
+          - "-5.0"
+        description: "Represents a decimal number."
+      - concept: Arithmetic
+        usage:
+          - "a + b"
+          - "a - b"
+          - "a * b"
+          - "a / b"
+        examples:
+          - "2 + 3"
+        description: "Performs basic mathematical operations."
+      - concept: Comparison
+        usage:
+          - ">"
+          - "<"
+          - ">="
+          - "<="
+        examples:
+          - "12 > 3"
+        description: "Compares numeric values and returns true or false."
+  ruby-strings:
+    title: Ruby Strings
+    heading: Strings
+    paragraphs:
+      - "Strings are used everywhere in views, logs, route helpers and messages."
+    commands:
+      - concept: Create a string
+        usage:
+          - "\"text\""
+        examples:
+          - "\"Hello\""
+        description: "Creates a string literal."
+      - concept: Interpolation
+        usage:
+          - "\"Hello #{name}\""
+        examples:
+          - "\"Hello #{user}\""
+        description: "Embeds Ruby values inside a string."
+      - concept: Length
+        usage:
+          - "text.length"
+        examples:
+          - "\"Rails\".length"
+        description: "Returns the number of characters."
+      - concept: Replace content
+        usage:
+          - "text.gsub(\"old\", \"new\")"
+        examples:
+          - "\"Rails\".gsub(\"R\", \"T\")"
+        description: "Returns a modified copy of the original string."
+  ruby-arrays:
+    title: Ruby Arrays
+    heading: Arrays
+    paragraphs:
+      - "Arrays store ordered collections and are heavily used for loops in views and controllers."
+    commands:
+      - concept: Create an array
+        usage:
+          - "[1, 2, 3]"
+        examples:
+          - "[\"rails\", \"ruby\"]"
+        description: "Creates an ordered collection."
+      - concept: Access an element
+        usage:
+          - "array[index]"
+        examples:
+          - "items[0]"
+        description: "Reads one value by position."
+      - concept: Append a value
+        usage:
+          - "array << value"
+        examples:
+          - "items << \"console\""
+        description: "Adds a value at the end of the array."
+      - concept: Iterate
+        usage:
+          - "array.each do |item| ... end"
+        examples:
+          - "items.each do |item|"
+        description: "Loops through each value in order."
+  ruby-hashes:
+    title: Ruby Hashes
+    heading: Hashes
+    paragraphs:
+      - "Hashes map keys to values and appear often in params, configuration and JSON-like data."
+    commands:
+      - concept: Create a hash
+        usage:
+          - "{ key: value }"
+        examples:
+          - "{ title: \"Rails\" }"
+        description: "Creates a key/value structure."
+      - concept: Read a value
+        usage:
+          - "hash[:key]"
+        examples:
+          - "settings[:theme]"
+        description: "Fetches the value associated with a key."
+      - concept: Write a value
+        usage:
+          - "hash[:key] = value"
+        examples:
+          - "settings[:theme] = \"light\""
+        description: "Adds or replaces a key/value pair."
+      - concept: Merge hashes
+        usage:
+          - "first.merge(second)"
+        examples:
+          - "defaults.merge(options)"
+        description: "Combines two hashes into a new hash."
+  rails-folder-structure:
+    title: Rails Folder Structure
+    heading: Folder Structure
+    paragraphs:
+      - "Rails becomes easier once you know where code belongs in the default project tree."
+    commands:
+      - concept: Controllers
+        usage:
+          - "app/controllers"
+        examples:
+          - "app/controllers/pages_controller.rb"
+        description: "Receives requests and prepares data for views."
+      - concept: Views
+        usage:
+          - "app/views"
+        examples:
+          - "app/views/pages/show.html.erb"
+        description: "Contains ERB templates rendered in the browser."
+      - concept: Assets
+        usage:
+          - "app/assets"
+        examples:
+          - "app/assets/stylesheets/application.css"
+        description: "Stores stylesheets and front-end assets."
+      - concept: Configuration
+        usage:
+          - "config"
+        examples:
+          - "config/routes.rb"
+        description: "Keeps routes and environment configuration."
+  rails-commands:
+    title: Rails Commands
+    heading: Important Rails Commands
+    paragraphs:
+      - "The Rails CLI covers project creation, code generation, route inspection and local execution."
+    commands:
+      - concept: Create a new app
+        usage:
+          - "rails new app_name"
+        examples:
+          - "rails new CheatSheet"
+        description: "Generates a new Rails application."
+      - concept: Start the server
+        usage:
+          - "bin/rails server"
+        examples:
+          - "bin/rails server"
+        description: "Runs the local development server."
+      - concept: Generate a controller
+        usage:
+          - "bin/rails generate controller name"
+        examples:
+          - "bin/rails generate controller pages"
+        description: "Creates a controller and matching views."
+      - concept: Show routes
+        usage:
+          - "bin/rails routes"
+        examples:
+          - "bin/rails routes"
+        description: "Lists every route defined in the application."
+      - concept: Open the console
+        usage:
+          - "bin/rails console"
+        examples:
+          - "bin/rails console"
+        description: "Starts an interactive Rails console."
+  rails-erb:
+    title: Rails ERB
+    heading: ERB
+    paragraphs:
+      - "ERB mixes HTML and Ruby in views. The key rule for this project is to keep structure in templates and styling in CSS."
+    commands:
+      - concept: Print a value
+        usage:
+          - "<%= expression %>"
+        examples:
+          - "<%= @page_title %>"
+        description: "Outputs the Ruby expression inside the HTML."
+      - concept: Run Ruby without output
+        usage:
+          - "<% code %>"
+        examples:
+          - "<% @navigation.each do |item| %>"
+        description: "Executes Ruby without inserting anything at that position."
+      - concept: Link helper
+        usage:
+          - "link_to label, path"
+        examples:
+          - "link_to \"Home\", root_path"
+        description: "Builds links the Rails way."
+      - concept: Render a partial
+        usage:
+          - "render \"shared/command_table\""
+        examples:
+          - "render \"shared/command_table\", commands: @commands"
+        description: "Reuses a piece of view markup."
+  editor:
+    title: Editor
+    heading: Editor Tips
+    paragraphs:
+      - "A text editor with search, split panes and quick file navigation makes Rails work much easier."
+    commands:
+      - concept: Save file
+        usage:
+          - "Ctrl + S"
+        examples:
+          - "Save the current file"
+        description: "Writes the latest changes to disk."
+      - concept: Find in file
+        usage:
+          - "Ctrl + F"
+        examples:
+          - "Find a route name"
+        description: "Searches text in the current file."
+      - concept: Find in project
+        usage:
+          - "Ctrl + Shift + F"
+        examples:
+          - "Search for PagesController"
+        description: "Searches text through the whole project."
+      - concept: Open a file quickly
+        usage:
+          - "Ctrl + P"
+        examples:
+          - "Open application.html.erb"
+        description: "Uses fuzzy search to jump to a file."
+  help:
+    title: Help
+    heading: Help
+    paragraphs:
+      - "When something goes wrong, a short checklist usually saves a lot of time."
+    commands:
+      - concept: CLI help
+        usage:
+          - "bin/rails --help"
+        examples:
+          - "bin/rails --help"
+        description: "Lists the commands available in Rails."
+      - concept: Command-specific help
+        usage:
+          - "bin/rails generate --help"
+        examples:
+          - "bin/rails generate --help"
+        description: "Shows the options for a specific command."
+      - concept: Official guides
+        usage:
+          - "guides.rubyonrails.org"
+        examples:
+          - "Rails Guides"
+        description: "The official documentation for Rails."
+      - concept: Browser inspector
+        usage:
+          - "Inspect Element"
+        examples:
+          - "Inspect a table cell"
+        description: "Helps understand the HTML structure generated in the browser."

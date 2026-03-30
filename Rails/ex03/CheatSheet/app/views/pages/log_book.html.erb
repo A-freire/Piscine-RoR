@@ -1,0 +1,27 @@
+<% content_for :title, "Log Book" %>
+
+<section id="main-content" class="log-book-page">
+  <h1>Log Book</h1>
+
+  <p>
+    Keep short technical notes directly in the cheat sheet project. Each new entry is
+    timestamped and added to the top of the page after submission.
+  </p>
+
+  <%= form_with url: log_book_path, method: :post, local: true, class: "log-book-form" do %>
+    <div class="mb-3">
+      <%= label_tag :entry, "New entry", class: "form-label" %>
+      <%= text_area_tag :entry, nil, rows: 4, class: "form-control", required: true %>
+    </div>
+
+    <%= submit_tag "Write", class: "btn btn-danger" %>
+  <% end %>
+
+  <% if @records.any? %>
+    <% @records.each do |entry| %>
+      <p class="log-book-entry"><%= entry %></p>
+    <% end %>
+  <% else %>
+    <p>No entry yet.</p>
+  <% end %>
+</section>
