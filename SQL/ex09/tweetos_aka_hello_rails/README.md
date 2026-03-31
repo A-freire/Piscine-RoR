@@ -1,24 +1,54 @@
-# README
+# Ex09 - Tweetos aka Hello Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Objectif
 
-Things you may want to cover:
+Cet exercice correspond a une version integree du projet Tweetos : schema, validations, associations, logique metier, seed de donnees et interface CRUD sont reunis dans une seule application.
 
-* Ruby version
+## Ce que l'exercice met en place
 
-* System dependencies
+- base de donnees complete
+- reseau de relations entre utilisateurs, messages, commentaires et likes
+- donnees de seed pour tester l'application
+- pages CRUD pour manipuler les ressources
+- methodes metier pour mesurer l'activite et la popularite
 
-* Configuration
+## Ce qu'il faut comprendre
 
-* Database creation
+Cet exercice fait la synthese entre SQL et Rails :
 
-* Database initialization
+- SQL pour penser la structure et les relations
+- ActiveRecord pour encapsuler les requetes metier
+- Rails pour exposer le tout via une interface web
 
-* How to run the test suite
+La valeur pedagogique est de voir qu'une application n'est pas une somme de fichiers separes, mais un systeme coherent ou schema, logique et affichage se repondent.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Aboutissants de l'exercice
 
-* Deployment instructions
+Si l'exercice est bien compris, tu peux :
 
-* ...
+- expliquer tout le cycle de vie d'une donnee, de sa creation a son affichage
+- justifier le schema relationnel choisi
+- comprendre comment les seeds servent a tester rapidement une application
+- lire une petite application Rails de bout en bout
+- distinguer ce qui releve du stockage, du metier et de la presentation
+
+## Fichiers importants
+
+- `db/migrate/*`
+- `db/seeds.rb`
+- `app/models/*`
+- `app/controllers/*`
+- `app/views/*`
+
+## Lancer l'exercice
+
+```bash
+bundle install
+bin/rails db:create db:migrate db:seed
+bin/rails server
+bin/rails test
+```
+
+## En resume
+
+Ex09 est l'aboutissement de la branche Tweetos : une mini application sociale complete, suffisante pour comprendre comment SQL et Rails s'articulent dans un projet reel.

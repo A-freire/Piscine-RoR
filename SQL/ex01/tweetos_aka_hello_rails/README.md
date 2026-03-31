@@ -1,24 +1,59 @@
-# README
+# Ex01 - Tweetos aka Hello Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Objectif
 
-Things you may want to cover:
+Cet exercice introduit la modelisation relationnelle avec Rails et ActiveRecord a travers un mini reseau social compose de `users`, `cuicuis`, `comments` et `likes`.
 
-* Ruby version
+## Ce que l'exercice met en place
 
-* System dependencies
+- migrations pour creer le schema
+- validations sur les modeles
+- associations entre les entites
+- premiere structure CRUD exposee par Rails
 
-* Configuration
+## Ce qu'il faut comprendre
 
-* Database creation
+Le coeur de l'exercice est de transformer un besoin metier simple en schema relationnel coherent :
 
-* Database initialization
+- un `User` publie des `Cuicui`
+- un `User` peut commenter un `Cuicui`
+- un `User` peut liker un `Cuicui`
 
-* How to run the test suite
+On apprend aussi a proteger les donnees avec des validations :
 
-* Services (job queues, cache servers, search engines, etc.)
+- unicite de `name` et `email`
+- format d'email
+- presence des champs importants
+- coherence des cles etrangeres
 
-* Deployment instructions
+## Aboutissants de l'exercice
 
-* ...
+Si l'exercice est maitrise, tu dois etre capable de :
+
+- expliquer pourquoi une relation `has_many` ou `belongs_to` existe
+- lire une migration et comprendre le schema genere
+- distinguer validation applicative et structure de table
+- justifier la presence des indexes sur les colonnes souvent recherchees
+- decrire comment un mini reseau social se traduit en tables SQL
+
+## Fichiers importants
+
+- `db/migrate/*`
+- `db/schema.rb`
+- `app/models/user.rb`
+- `app/models/cuicui.rb`
+- `app/models/comment.rb`
+- `app/models/like.rb`
+
+## Lancer l'exercice
+
+```bash
+bundle install
+bin/rails db:create db:migrate db:seed
+bin/rails server
+bin/rails test
+```
+
+## En resume
+
+Ex01 pose les fondations du projet Tweetos : le schema, les regles de validation et les associations de base entre les donnees.

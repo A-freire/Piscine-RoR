@@ -1,24 +1,55 @@
-# README
+# Ex04 - Seek_well
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Objectif
 
-Things you may want to cover:
+Cet exercice met l'accent sur la lecture de donnees et la restitution de resultats exploitables, en particulier avec des tris et des jointures entre tables.
 
-* Ruby version
+## Ce que l'exercice met en place
 
-* System dependencies
+- affichage des timestamps bruts
+- affichage complet des resultats d'une course
+- tri par nom de coureur
+- tri par numero de course
+- jointure entre `clock_watch` et `race`
 
-* Configuration
+## Ce qu'il faut comprendre
 
-* Database creation
+Une base relationnelle prend tout son sens quand on recolle plusieurs tables pour produire une vue metier lisible. Ici :
 
-* Database initialization
+- `clock_watch` contient l'historique detaille
+- `race` contient le depart de chaque course
+- le `JOIN` permet d'afficher les passages avec leur contexte de course
 
-* How to run the test suite
+Le tri change la lecture du resultat :
 
-* Services (job queues, cache servers, search engines, etc.)
+- tri par nom pour suivre un coureur
+- tri par course pour suivre l'ordre chronologique des evenements
 
-* Deployment instructions
+## Aboutissants de l'exercice
 
-* ...
+Apres cet exercice, tu dois savoir :
+
+- pourquoi on separe stockage et affichage
+- quand il faut faire un `JOIN`
+- comment `ORDER BY` change l'analyse des donnees
+- produire une sortie SQL exploitable par une interface web
+- expliquer la difference entre une table source et une vue logique reconstituee
+
+## Fichiers importants
+
+- `app/controllers/ft_query_controller.rb`
+- `app/views/ft_query/index.html.erb`
+- `app/views/ft_query/_all.html.erb`
+- `app/views/ft_query/_timestamp.html.erb`
+
+## Lancer l'exercice
+
+```bash
+bundle install
+bin/rails server
+bin/rails test
+```
+
+## En resume
+
+Ex04 apprend a relire proprement une base relationnelle et a transformer des lignes SQL en information comprehensible pour l'utilisateur.
