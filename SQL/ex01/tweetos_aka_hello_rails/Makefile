@@ -2,6 +2,7 @@ IMAGE_NAME ?= sql-ex01-tweetos
 PORT ?= 3000
 RUN := docker run --rm -v "$(PWD):/app" $(IMAGE_NAME)
 RUN_WEB := docker run --rm -p $(PORT):3000 -v "$(PWD):/app" $(IMAGE_NAME)
+RUN_WEB_CMD := bash -lc 'bundle exec rails db:prepare db:seed && bundle exec rails server -b 0.0.0.0'
 RUN_TTY := docker run --rm -it -v "$(PWD):/app" $(IMAGE_NAME)
 VIEW_CMD := bash -lc 'gem list -i colorize >/dev/null || gem install colorize >/dev/null; gem list -i pry >/dev/null || gem install pry >/dev/null; ruby views_com.rb
 
@@ -11,7 +12,7 @@ help:
 	@printf "%s\n" \
 		"Targets disponibles:" \
 		"  make build            - build l'image Docker $(IMAGE_NAME)" \
-		"  make run              - lance l'application sur http://localhost:$(PORT)" \
+		"  make run              - seed puis lance l'application sur http://localhost:$(PORT)" \
 		"  make test             - lance la suite de tests Rails" \
 		"  make shell            - ouvre un shell dans le conteneur" \
 		"  make views-uncomment  - decommente les vues via views_com.rb" \
@@ -21,7 +22,7 @@ build:
 	docker build -t $(IMAGE_NAME) .
 
 run: build
-	$(RUN_WEB)
+	$(RUN_WEB) $(RUN_WEB_CMD)
 
 test: build
 	$(RUN) bash -lc 'rm -f db/test.sqlite3 && RAILS_ENV=test bundle exec rails db:drop db:create db:migrate && bundle exec rails test'
