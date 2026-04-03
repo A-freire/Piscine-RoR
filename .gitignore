@@ -56,3 +56,14 @@ build-iPhoneSimulator/
 # .rubocop-https?--*
 
 .DS_Store
+
+# Advanced generated/local files
+/Advanced/.build/
+/Advanced/**/.env
+!/Advanced/**/.env.example
+/Advanced/**/log/*
+!/Advanced/**/log/.keep
+/Advanced/**/tmp/*
+!/Advanced/**/tmp/.keep
+/Advanced/**/public/uploads/*
+!/Advanced/**/public/uploads/.keep

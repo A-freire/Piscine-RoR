@@ -1,7 +1,0 @@
-/.git
-/log/*
-/tmp/*
-/storage/*
-/vendor/bundle
-/.bundle
-/.DS_Store

@@ -14,4 +14,5 @@ Application Rails du sujet `Advanced.pdf`, adaptée pour tourner avec Docker au 
 
 - PostgreSQL tourne dans le service `db`.
 - Les identifiants Cloudinary sont lus depuis `.env`.
-- En l'absence de configuration Cloudinary, l'application bascule sur un stockage local CarrierWave pour le développement.
+- Pour l'exercice 02, la configuration Cloudinary detaillee est expliquee dans `CLOUDINARY.md`.
+- En l'absence de configuration Cloudinary complete, l'application bascule sur un stockage local CarrierWave pour le developpement.

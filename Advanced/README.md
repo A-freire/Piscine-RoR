@@ -12,18 +12,43 @@ Le sujet `Advanced.pdf` a ete realise en remplacant la contrainte "VM" par une e
 - `ex05/acme`
 - `ex06/acme`
 
-Chaque dossier contient une application Rails `acme` runnable avec Docker Compose.
+Chaque dossier contient une application Rails `acme` runnable avec Docker Compose et un `Makefile`.
 
-## Commandes utiles
+## Utilisation
 
 Depuis un dossier `ex0N/acme` :
 
-1. `docker compose build`
-2. `docker compose run --rm web bundle exec rails db:prepare`
-3. `docker compose run --rm web bundle exec rails db:seed`
-4. `docker compose up`
+```bash
+make
+```
 
-L'application est exposee sur `http://localhost:3000`.
+ou
+
+```bash
+make all
+```
+
+Cela :
+
+1. cree `.env` si besoin ;
+2. build les conteneurs ;
+3. recreate la base ;
+4. lance les migrations ;
+5. lance la seed ;
+6. demarre l'application.
+
+L'application est ensuite disponible sur :
+
+- [http://localhost:3000](http://localhost:3000)
+
+## Autres commandes
+
+Depuis un dossier `ex0N/acme` :
+
+```bash
+make clean
+make rubycritic
+```
 
 ## Variables utiles
 

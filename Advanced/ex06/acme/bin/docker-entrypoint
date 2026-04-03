@@ -3,4 +3,21 @@ set -e
 
 rm -f /app/tmp/pids/server.pid
 
+bootstrap_database() {
+  echo "Running database migrations..."
+  bundle exec rails db:migrate
+
+  echo "Checking whether demo data needs to be seeded..."
+  if bundle exec rails runner "models = [User, Brand, Product, Cart, Order]; has_data = models.any? { |model| ActiveRecord::Base.connection.data_source_exists?(model.table_name) && model.exists? }; exit(has_data ? 0 : 1)"; then
+    echo "Existing data detected, skipping seed."
+  else
+    echo "Database is empty, loading seed data..."
+    bundle exec rails db:seed
+  fi
+}
+
+if [ "${RAILS_ENV:-development}" = "production" ]; then
+  bootstrap_database
+fi
+
 exec "$@"

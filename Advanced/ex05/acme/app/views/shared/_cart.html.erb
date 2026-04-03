@@ -17,9 +17,9 @@
           <div class="line-price">
             <span><%= money(item.line_total) %></span>
             <div class="cart-line__actions">
-              <%= button_to "+", increment_cart_item_path(item), method: :patch %>
-              <%= button_to "-", decrement_cart_item_path(item), method: :patch, class: "button--light" %>
-              <%= button_to "Retirer", cart_item_path(item), method: :delete, class: "button--light" %>
+              <%= button_to "+", increment_cart_item_path(item), method: :patch, form: { data: { turbo: false } } %>
+              <%= button_to "-", decrement_cart_item_path(item), method: :patch, class: "button--light", form: { data: { turbo: false } } %>
+              <%= button_to "Retirer", cart_item_path(item), method: :delete, class: "button--light", form: { data: { turbo: false } } %>
             </div>
           </div>
         </div>
@@ -33,7 +33,7 @@
 
     <div class="stack-actions">
       <%= link_to "Checkout", checkout_path, class: "button button--dark" %>
-      <%= button_to "Vider le panier", cart_path, method: :delete, class: "button--light" %>
+      <%= button_to "Vider le panier", cart_path, method: :delete, class: "button--light", form: { data: { turbo: false } } %>
     </div>
   <% else %>
     <div class="empty-state">

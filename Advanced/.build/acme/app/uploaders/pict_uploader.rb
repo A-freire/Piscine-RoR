@@ -1,2 +1,0 @@
-class PictUploader < ApplicationUploader
-end

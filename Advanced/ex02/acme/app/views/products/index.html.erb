@@ -4,6 +4,10 @@
   <p class="subhead">
     Retrouvez les produits, les marques, l'authentification, le panier persistant et le back-office sur une seule application Rails.
   </p>
+  <p class="subhead">
+    Stockage images :
+    <strong><%= cloudinary_enabled? ? "Cloudinary actif" : "Cloudinary non configure, stockage local temporaire" %></strong>
+  </p>
 </section>
 
 <section class="page-head">

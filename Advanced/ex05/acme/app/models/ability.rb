@@ -14,9 +14,11 @@ class Ability
 
     if user.admin?
       can :manage, :all
-      can %i[access dashboard], :rails_admin
+      can :access, :rails_admin
+      can :read, :dashboard
     elsif user.mod?
-      can %i[access dashboard], :rails_admin
+      can :access, :rails_admin
+      can :read, :dashboard
       can :manage, Product
       can :manage, Brand
     end

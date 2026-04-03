@@ -11,12 +11,12 @@ class OrdersController < ApplicationController
     cart = current_cart
 
     if cart.cart_items.empty?
-      redirect_to products_path, alert: "Votre panier est vide."
+      redirect_to products_path, alert: "Votre panier est vide.", status: :see_other
       return
     end
 
     Order.from_cart!(cart: cart, user: current_user)
     reset_current_cart!
-    redirect_to products_path, notice: "Votre commande a bien ete enregistree."
+    redirect_to products_path, notice: "Votre commande a bien ete enregistree.", status: :see_other
   end
 end

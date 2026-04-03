@@ -9,12 +9,13 @@ module ApplicationHelper
 
   def transformed_image_url(uploader, width:, height:)
     return nil unless uploader.present?
+    return uploader.transformed_url(width: width, height: height) if uploader.respond_to?(:transformed_url)
 
-    if uploader.class.ancestors.include?(Cloudinary::CarrierWave)
-      uploader.url(width: width, height: height, crop: :fill, gravity: :auto, fetch_format: :auto, quality: :auto)
-    else
-      uploader.url
-    end
+    uploader.url
+  end
+
+  def cloudinary_enabled?
+    ApplicationUploader.cloudinary_configured?
   end
 
   def can_manage_catalog?

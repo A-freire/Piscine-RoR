@@ -4,12 +4,12 @@ class CartItemsController < ApplicationController
   def create
     product = Product.find(params[:product_id])
     current_cart.add_product(product)
-    redirect_back fallback_location: products_path, notice: "#{product.name} a ete ajoute au panier."
+    redirect_back fallback_location: products_path, notice: "#{product.name} a ete ajoute au panier.", status: :see_other
   end
 
   def increment
     @cart_item.increment!(:quantity)
-    redirect_back fallback_location: cart_path, notice: "La quantite a ete augmentee."
+    redirect_back fallback_location: cart_path, notice: "La quantite a ete augmentee.", status: :see_other
   end
 
   def decrement
@@ -21,12 +21,12 @@ class CartItemsController < ApplicationController
       message = "La quantite a ete diminuee."
     end
 
-    redirect_back fallback_location: cart_path, notice: message
+    redirect_back fallback_location: cart_path, notice: message, status: :see_other
   end
 
   def destroy
     @cart_item.destroy!
-    redirect_back fallback_location: cart_path, notice: "L'article a ete retire du panier."
+    redirect_back fallback_location: cart_path, notice: "L'article a ete retire du panier.", status: :see_other
   end
 
   private

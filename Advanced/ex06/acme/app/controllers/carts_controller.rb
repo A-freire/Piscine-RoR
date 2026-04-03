@@ -5,6 +5,6 @@ class CartsController < ApplicationController
 
   def destroy
     reset_current_cart!
-    redirect_to products_path, notice: "Le panier a ete vide."
+    redirect_to products_path, notice: "Le panier a ete vide.", status: :see_other
   end
 end

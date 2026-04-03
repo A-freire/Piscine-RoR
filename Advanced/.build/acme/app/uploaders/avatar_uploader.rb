@@ -1,2 +1,0 @@
-class AvatarUploader < ApplicationUploader
-end
