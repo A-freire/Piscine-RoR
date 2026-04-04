@@ -9,7 +9,8 @@
 <section class="page-head">
   <div>
     <p class="eyebrow">Produits</p>
-    <h2 class="section-title"><%= @products.count %> references disponibles</h2>
+    <h2 class="section-title"><%= @total_products %> references disponibles</h2>
+    <p class="muted">Page <%= @page %> sur <%= @total_pages %>, avec <%= @products.size %> produits affiches.</p>
   </div>
 
   <% if can_manage_catalog? %>
@@ -19,6 +20,20 @@
     </div>
   <% end %>
 </section>
+
+<% if @total_pages > 1 %>
+  <nav class="pagination" aria-label="Pagination du catalogue">
+    <% if @page > 1 %>
+      <%= link_to "Page precedente", products_path(page: @page - 1), class: "ghost-link" %>
+    <% end %>
+
+    <span class="meta-pill">Page <%= @page %> / <%= @total_pages %></span>
+
+    <% if @page < @total_pages %>
+      <%= link_to "Page suivante", products_path(page: @page + 1), class: "button button--dark" %>
+    <% end %>
+  </nav>
+<% end %>
 
 <div class="catalog-layout">
   <section class="product-grid">

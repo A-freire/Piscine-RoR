@@ -1,10 +1,18 @@
 class ProductsController < ApplicationController
+  PER_PAGE = 24
+
   before_action :set_product, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[index show]
   before_action :authorize_catalog_write!, only: %i[new create edit update destroy]
 
   def index
-    @products = Product.ordered
+    @total_products = Product.count
+    @total_pages = [(@total_products.to_f / PER_PAGE).ceil, 1].max
+    @page = params.fetch(:page, 1).to_i
+    @page = 1 if @page < 1
+    @page = @total_pages if @page > @total_pages
+
+    @products = Product.ordered.offset((@page - 1) * PER_PAGE).limit(PER_PAGE)
     @cart = current_cart
   end
 
