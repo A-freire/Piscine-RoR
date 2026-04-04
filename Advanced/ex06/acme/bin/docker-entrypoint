@@ -4,7 +4,7 @@ set -e
 rm -f /app/tmp/pids/server.pid
 
 seed_needs_run() {
-  bundle exec rails runner "brand_target = ENV.fetch('SEED_BRANDS_COUNT', 50).to_i; product_target = ENV.fetch('SEED_PRODUCTS_COUNT', 2500).to_i; seed_with_images = ENV['SEED_WITH_IMAGES'] == 'true'; tables_ready = ActiveRecord::Base.connection.data_source_exists?('users') && ActiveRecord::Base.connection.data_source_exists?('brands') && ActiveRecord::Base.connection.data_source_exists?('products'); admin_ready = User.exists?(email: 'admin@gmail.com'); counts_ready = Brand.count >= brand_target && Product.count >= product_target; images_ready = !seed_with_images || (Brand.where.not(avatar: [nil, '']).count >= brand_target && Product.where.not(pict: [nil, '']).count >= product_target); exit(tables_ready && admin_ready && counts_ready && images_ready ? 0 : 1)"
+  bundle exec rails runner "brand_target = ENV.fetch('SEED_BRANDS_COUNT', 50).to_i; product_target = ENV.fetch('SEED_PRODUCTS_COUNT', 2500).to_i; seed_with_images = ENV['SEED_WITH_IMAGES'] == 'true'; force_reupload_images = ENV['FORCE_REUPLOAD_IMAGES'] == 'true'; tables_ready = ActiveRecord::Base.connection.data_source_exists?('users') && ActiveRecord::Base.connection.data_source_exists?('brands') && ActiveRecord::Base.connection.data_source_exists?('products'); admin_ready = User.exists?(email: 'admin@gmail.com'); counts_ready = Brand.count >= brand_target && Product.count >= product_target; images_ready = !seed_with_images || (!force_reupload_images && Brand.where.not(avatar: [nil, '']).count >= brand_target && Product.where.not(pict: [nil, '']).count >= product_target); exit(tables_ready && admin_ready && counts_ready && images_ready ? 0 : 1)"
 }
 
 launch_seed_in_background() {

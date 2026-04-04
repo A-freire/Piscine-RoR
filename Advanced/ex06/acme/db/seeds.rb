@@ -33,6 +33,7 @@ sample_images = [
   Rails.root.join("db", "seed_assets", "articles_logged_out.jpeg")
 ]
 seed_with_images = ENV["SEED_WITH_IMAGES"] == "true" || !Rails.env.production?
+force_reupload_images = ENV["FORCE_REUPLOAD_IMAGES"] == "true"
 reset_seed = ENV["SEED_RESET"] == "true" || !Rails.env.production?
 brand_count = ENV.fetch("SEED_BRANDS_COUNT", 50).to_i
 product_count = ENV.fetch("SEED_PRODUCTS_COUNT", 2500).to_i
@@ -89,7 +90,7 @@ end
 
 if seed_with_images
   Brand.find_each do |brand|
-    next if brand[:avatar].present?
+    next if brand[:avatar].present? && !force_reupload_images
 
     seed_file!(brand, :avatar, sample_images.sample)
   end
@@ -138,7 +139,7 @@ end
 
 if seed_with_images
   Product.find_each.with_index(1) do |product, index|
-    next if product[:pict].present?
+    next if product[:pict].present? && !force_reupload_images
 
     seed_file!(product, :pict, sample_images.sample)
     puts "Attached images to #{index}/#{Product.count} products..." if (index % 100).zero?
@@ -147,6 +148,8 @@ end
 
 if !seed_with_images
   puts "Images were skipped. Set SEED_WITH_IMAGES=true on a later deploy if you want to attach them."
+elsif force_reupload_images
+  puts "Force reupload is enabled: existing images will be uploaded again."
 else
   puts "Images are enabled for this seed run."
 end
