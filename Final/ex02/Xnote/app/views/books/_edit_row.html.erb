@@ -1,3 +1,4 @@
+<% restored_row = j(render("book", book: book)) %>
 <tr id="<%= dom_id(book) %>">
   <td colspan="2">
     <div class="inline-row-form">
@@ -13,7 +14,7 @@
         <div class="row-editor">
           <%= form.text_field :name, autofocus: true, autocomplete: "off" %>
           <%= form.submit "Update", class: "primary-action small" %>
-          <%= link_to "Cancel", "#", class: "secondary-action small", onclick: "document.getElementById('#{dom_id(book)}').outerHTML = #{j(render('book', book: book)).to_json}; return false;" %>
+          <%= link_to "Cancel", "#", class: "secondary-action small", onclick: "document.getElementById('#{dom_id(book)}').outerHTML = \"#{restored_row}\"; return false;" %>
         </div>
       <% end %>
     </div>

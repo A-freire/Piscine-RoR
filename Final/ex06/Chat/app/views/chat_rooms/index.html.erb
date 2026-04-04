@@ -13,6 +13,8 @@
       <p>Select a room to open its live conversation.</p>
     </div>
 
-    <%= render "room_list", chat_rooms: @chat_rooms %>
+    <div data-room-list-container>
+      <%= render "room_list", chat_rooms: @chat_rooms %>
+    </div>
   </div>
 </section>

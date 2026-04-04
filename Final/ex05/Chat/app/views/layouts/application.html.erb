@@ -12,7 +12,7 @@
     <%= javascript_include_tag 'cable', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body data-chat-rooms-path="<%= user_signed_in? ? chat_rooms_path : '' %>">
     <header class="topbar">
       <div>
         <p class="topbar-kicker">Final · ChatTwo</p>
@@ -50,7 +50,43 @@
 
           function currentRoomId() {
             var node = document.getElementById("chat-room-root");
-            return node ? node.dataset.chatRoomId : null;
+            return node ? String(node.dataset.chatRoomId) : null;
+          }
+
+          function syncActiveRoomInLists() {
+            var roomId = currentRoomId();
+
+            document.querySelectorAll("[data-room-list-container] .room-item").forEach(function(item) {
+              item.classList.toggle("active", roomId && item.dataset.roomId === roomId);
+            });
+          }
+
+          function renderRoomLists(html, roomIds) {
+            document.querySelectorAll("[data-room-list-container]").forEach(function(container) {
+              container.innerHTML = html;
+            });
+
+            syncActiveRoomInLists();
+
+            var activeRoomId = currentRoomId();
+            if (activeRoomId && roomIds && roomIds.indexOf(activeRoomId) === -1) {
+              window.location.href = document.body.dataset.chatRoomsPath;
+            }
+          }
+
+          function ensureChatRoomsSubscription() {
+            if (window.chatApp.chatRoomsSubscription || !window.App || !App.cable) {
+              return;
+            }
+
+            window.chatApp.chatRoomsSubscription = App.cable.subscriptions.create(
+              { channel: "ChatRoomsChannel" },
+              {
+                received: function(data) {
+                  renderRoomLists(data.html, data.room_ids || []);
+                }
+              }
+            );
           }
 
           function ensureRoomSubscription() {
@@ -96,7 +132,9 @@
           }
 
           document.addEventListener("turbolinks:load", function() {
+            ensureChatRoomsSubscription();
             ensureRoomSubscription();
+            syncActiveRoomInLists();
 
             var messages = document.getElementById("messages");
             if (messages) {

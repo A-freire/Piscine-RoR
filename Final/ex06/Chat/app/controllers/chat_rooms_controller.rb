@@ -37,7 +37,10 @@ class ChatRoomsController < ApplicationController
   private
 
   def set_chat_room
-    @chat_room = ChatRoom.find(params[:id])
+    @chat_room = ChatRoom.find_by(id: params[:id])
+    return if @chat_room
+
+    redirect_to chat_rooms_path, alert: "This chat room no longer exists."
   end
 
   def load_chat_rooms

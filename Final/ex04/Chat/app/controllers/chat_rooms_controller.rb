@@ -18,8 +18,15 @@ class ChatRoomsController < ApplicationController
   end
 
   def global_room
-    @global_room ||= ChatRoom.find_or_create_by!(title: "General") do |room|
-      room.user = current_user
+    @global_room ||= begin
+      room = ChatRoom.where("LOWER(title) = ?", "general").first
+
+      if room
+        room.update_column(:title, "General") unless room.title == "General"
+        room
+      else
+        current_user.chat_rooms.create!(title: "General")
+      end
     end
   end
 end

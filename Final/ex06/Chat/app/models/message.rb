@@ -11,5 +11,6 @@ class Message < ApplicationRecord
   def enqueue_realtime_jobs
     MessageBroadcastJob.perform_later(id)
     NotificationBroadcastJob.perform_later(id)
+    ChatRoomsBroadcastJob.perform_later
   end
 end

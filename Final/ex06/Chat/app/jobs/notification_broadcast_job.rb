@@ -8,10 +8,13 @@ class NotificationBroadcastJob < ApplicationJob
     User.where.not(id: message.user_id).find_each do |user|
       NotificationsChannel.broadcast_to(
         user,
-        html: ApplicationController.render(
-          partial: "notifications/notification",
-          locals: { message: message }
-        )
+        {
+          room_id: message.chat_room_id,
+          html: ApplicationController.render(
+            partial: "notifications/notification",
+            locals: { message: message }
+          )
+        }
       )
     end
   end

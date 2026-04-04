@@ -7,10 +7,12 @@ class MessageBroadcastJob < ApplicationJob
 
     ActionCable.server.broadcast(
       "chat_room_#{message.chat_room_id}",
-      html: ApplicationController.render(
-        partial: "messages/message",
-        locals: { message: message }
-      )
+      {
+        html: ApplicationController.render(
+          partial: "messages/message",
+          locals: { message: message }
+        )
+      }
     )
   end
 end

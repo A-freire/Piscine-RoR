@@ -12,7 +12,7 @@
     <%= javascript_include_tag 'cable', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body data-signed-in="<%= user_signed_in? %>">
+  <body data-signed-in="<%= user_signed_in? %>" data-chat-rooms-path="<%= user_signed_in? ? chat_rooms_path : '' %>">
     <header class="topbar">
       <div>
         <p class="topbar-kicker">Final · ChatThree</p>
@@ -63,6 +63,10 @@
           window.chatApp = window.chatApp || {};
           window.chatApp.notifications = window.chatApp.notifications || [];
 
+          function normalizeRoomId(roomId) {
+            return roomId == null ? null : String(roomId);
+          }
+
           function renderNotifications() {
             var list = document.getElementById("notifications-list");
             var count = document.getElementById("notifications-count");
@@ -71,8 +75,51 @@
               return;
             }
 
-            list.innerHTML = window.chatApp.notifications.join("");
+            list.innerHTML = window.chatApp.notifications.map(function(notification) {
+              return typeof notification === "string" ? notification : notification.html;
+            }).join("");
             count.textContent = window.chatApp.notifications.length;
+          }
+
+          function clearNotificationsForRoom(roomId) {
+            var normalizedRoomId = normalizeRoomId(roomId);
+
+            if (!normalizedRoomId) {
+              return;
+            }
+
+            window.chatApp.notifications = window.chatApp.notifications.filter(function(notification) {
+              if (typeof notification === "string") {
+                return true;
+              }
+
+              return normalizeRoomId(notification.roomId) !== normalizedRoomId;
+            });
+
+            renderNotifications();
+          }
+
+          function syncActiveRoomInLists() {
+            var roomId = normalizeRoomId(currentRoomId());
+
+            document.querySelectorAll("[data-room-list-container] .room-item").forEach(function(item) {
+              item.classList.toggle("active", roomId && normalizeRoomId(item.dataset.roomId) === roomId);
+            });
+          }
+
+          function renderRoomLists(html, roomIds) {
+            document.querySelectorAll("[data-room-list-container]").forEach(function(container) {
+              container.innerHTML = html;
+            });
+
+            syncActiveRoomInLists();
+
+            var activeRoomId = normalizeRoomId(currentRoomId());
+            var normalizedRoomIds = (roomIds || []).map(normalizeRoomId);
+
+            if (activeRoomId && normalizedRoomIds.indexOf(activeRoomId) === -1) {
+              window.location.href = document.body.dataset.chatRoomsPath;
+            }
           }
 
           function playNotificationSound() {
@@ -108,11 +155,34 @@
 
             window.chatApp.notificationsSubscription = App.cable.subscriptions.create("NotificationsChannel", {
               received: function(data) {
-                window.chatApp.notifications.unshift(data.html);
+                if (normalizeRoomId(data.room_id) === normalizeRoomId(currentRoomId())) {
+                  clearNotificationsForRoom(data.room_id);
+                  return;
+                }
+
+                window.chatApp.notifications.unshift({
+                  roomId: data.room_id,
+                  html: data.html
+                });
                 renderNotifications();
                 playNotificationSound();
               }
             });
+          }
+
+          function ensureChatRoomsSubscription() {
+            if (window.chatApp.chatRoomsSubscription || !window.App || !App.cable) {
+              return;
+            }
+
+            window.chatApp.chatRoomsSubscription = App.cable.subscriptions.create(
+              { channel: "ChatRoomsChannel" },
+              {
+                received: function(data) {
+                  renderRoomLists(data.html, data.room_ids || []);
+                }
+              }
+            );
           }
 
           function currentRoomId() {
@@ -145,6 +215,7 @@
             }
 
             window.chatApp.roomId = roomId;
+            clearNotificationsForRoom(roomId);
             window.chatApp.roomSubscription = App.cable.subscriptions.create(
               { channel: "ChatRoomChannel", room_id: roomId },
               {
@@ -165,7 +236,10 @@
           document.addEventListener("turbolinks:load", function() {
             renderNotifications();
             ensureNotificationsSubscription();
+            ensureChatRoomsSubscription();
             ensureRoomSubscription();
+            clearNotificationsForRoom(currentRoomId());
+            syncActiveRoomInLists();
 
             var messages = document.getElementById("messages");
             if (messages) {

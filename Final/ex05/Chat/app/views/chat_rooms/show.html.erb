@@ -9,7 +9,9 @@
       <div class="section-heading">
         <h2>Rooms</h2>
       </div>
-      <%= render "room_list", chat_rooms: @chat_rooms, current_room: @chat_room %>
+      <div data-room-list-container>
+        <%= render "room_list", chat_rooms: @chat_rooms, current_room: @chat_room %>
+      </div>
     </div>
   </aside>
 

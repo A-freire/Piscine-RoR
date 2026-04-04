@@ -72,6 +72,7 @@ Rails.application.configure do
   config.action_cable.url = "ws://localhost:3001/cable"
   config.action_cable.allowed_request_origins = [
     %r{\Ahttp://localhost:3001\z},
-    %r{\Ahttp://127\.0\.0\.1:3001\z}
+    %r{\Ahttp://127\.0\.0\.1:3001\z},
+    %r{\Ahttp://0\.0\.0\.0:3001\z}
   ]
 end
