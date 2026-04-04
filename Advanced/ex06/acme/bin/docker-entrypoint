@@ -3,16 +3,34 @@ set -e
 
 rm -f /app/tmp/pids/server.pid
 
+seed_needs_run() {
+  bundle exec rails runner "brand_target = ENV.fetch('SEED_BRANDS_COUNT', 50).to_i; product_target = ENV.fetch('SEED_PRODUCTS_COUNT', 2500).to_i; seed_with_images = ENV['SEED_WITH_IMAGES'] == 'true'; tables_ready = ActiveRecord::Base.connection.data_source_exists?('users') && ActiveRecord::Base.connection.data_source_exists?('brands') && ActiveRecord::Base.connection.data_source_exists?('products'); admin_ready = User.exists?(email: 'admin@gmail.com'); counts_ready = Brand.count >= brand_target && Product.count >= product_target; images_ready = !seed_with_images || (Brand.where.not(avatar: [nil, '']).count >= brand_target && Product.where.not(pict: [nil, '']).count >= product_target); exit(tables_ready && admin_ready && counts_ready && images_ready ? 0 : 1)"
+}
+
+launch_seed_in_background() {
+  delay="${DEMO_SEED_DELAY_SECONDS:-8}"
+  echo "Demo data is incomplete, scheduling background seed in ${delay}s..."
+  (
+    sleep "$delay"
+    echo "Starting background demo seed..."
+    bundle exec rails db:seed
+  ) &
+}
+
 bootstrap_database() {
   echo "Running database migrations..."
   bundle exec rails db:migrate
 
+  if [ "${AUTO_SEED_DEMO_DATA:-true}" != "true" ]; then
+    echo "AUTO_SEED_DEMO_DATA is not enabled, skipping seed."
+    return
+  fi
+
   echo "Checking whether demo data needs to be seeded..."
-  if bundle exec rails runner "models = [User, Brand, Product, Cart, Order]; has_data = models.any? { |model| ActiveRecord::Base.connection.data_source_exists?(model.table_name) && model.exists? }; exit(has_data ? 0 : 1)"; then
+  if seed_needs_run; then
     echo "Existing data detected, skipping seed."
   else
-    echo "Database is empty, loading seed data..."
-    bundle exec rails db:seed
+    launch_seed_in_background
   fi
 }
 
