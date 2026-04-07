@@ -27,7 +27,7 @@ Commandes disponibles dans chaque exercice:
 Ports utilises:
 
 - `Xnote` (`ex00` a `ex03`): [http://localhost:3000](http://localhost:3000)
-- `Chat` (`ex04` a `ex06`): [http://localhost:3001](http://localhost:3001)
+- `Chat` (`ex04` a `ex06`): [http://localhost:3000](http://localhost:3000)
 
 ## Premier lancement
 

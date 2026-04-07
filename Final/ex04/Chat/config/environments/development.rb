@@ -1,6 +1,9 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  app_host = ENV.fetch("APP_HOST", "localhost")
+  app_port = ENV.fetch("APP_PORT", "3000")
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time
@@ -34,7 +37,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: "localhost", port: 3001 }
+  config.action_mailer.default_url_options = { host: app_host, port: app_port }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -69,10 +72,12 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_cable.url = "ws://localhost:3001/cable"
+  # Use the current page origin by default so Action Cable still works when the
+  # app is exposed on a different host port (for example via `make PORT=... run`).
+  config.action_cable.url = ENV.fetch("ACTION_CABLE_URL", "/cable")
   config.action_cable.allowed_request_origins = [
-    %r{\Ahttp://localhost:3001\z},
-    %r{\Ahttp://127\.0\.0\.1:3001\z},
-    %r{\Ahttp://0\.0\.0\.0:3001\z}
+    %r{\Ahttps?://localhost(?::\d+)?\z},
+    %r{\Ahttps?://127\.0\.0\.1(?::\d+)?\z},
+    %r{\Ahttps?://0\.0\.0\.0(?::\d+)?\z}
   ]
 end

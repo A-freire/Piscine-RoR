@@ -5,7 +5,7 @@ SHELL_CONTAINER := $(CONTAINER)-shell
 REDIS_CONTAINER := $(CONTAINER)-redis
 BUNDLE_VOLUME := $(CONTAINER)-bundle
 NETWORK := $(CONTAINER)-net
-PORT := 3001
+PORT := 3000
 REDIS_URL := redis://redis:6379/1
 
 .PHONY: build run interactive shell clean network-up redis-up

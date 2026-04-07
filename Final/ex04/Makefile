@@ -5,7 +5,7 @@ SHELL_CONTAINER := $(CONTAINER)-shell
 REDIS_CONTAINER := $(CONTAINER)-redis
 BUNDLE_VOLUME := $(CONTAINER)-bundle
 NETWORK := $(CONTAINER)-net
-PORT := 3001
+PORT := 3000
 REDIS_URL := redis://redis:6379/1
 
 .PHONY: build run interactive shell clean network-up redis-up
@@ -27,6 +27,7 @@ run: build redis-up
 	@docker rm -f $(CONTAINER) >/dev/null 2>&1 || true
 	docker run --rm --name $(CONTAINER) \
 		--network $(NETWORK) \
+		-e APP_PORT=$(PORT) \
 		-e REDIS_URL=$(REDIS_URL) \
 		-p $(PORT):3000 \
 		-v "$(CURDIR)/$(APP_DIR):/app" \
@@ -37,6 +38,7 @@ interactive: build redis-up
 	@docker rm -f $(SHELL_CONTAINER) >/dev/null 2>&1 || true
 	docker run --rm -it --name $(SHELL_CONTAINER) \
 		--network $(NETWORK) \
+		-e APP_PORT=$(PORT) \
 		-e REDIS_URL=$(REDIS_URL) \
 		-p $(PORT):3000 \
 		-v "$(CURDIR)/$(APP_DIR):/app" \
